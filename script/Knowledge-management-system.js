@@ -39,14 +39,14 @@ window.onload = function () {
                 var edit_not = document.getElementById('edit-not').value;//取出一部分字:text-overflow+width
 
                 var edit_tag = document.getElementById('edit-tag').value;//通过分号分割出来
-                var newCard = {
-                    "title": edit_tit,
-                    "URL": edit_url,
-                    "学习进度": edit_sch,
-                    "知识评价": edit_eva,
-                    "学习笔记": edit_not,
-                    "tags": ['Tag1', 'Tag2', 'Tag3']
-                }
+                // var newCard = {
+                //     "title": edit_tit,
+                //     "URL": edit_url,
+                //     "学习进度": edit_sch,
+                //     "知识评价": edit_eva,
+                //     "学习笔记": edit_not,
+                //     "tags": ['Tag1', 'Tag2', 'Tag3']
+                // }
 
             }
             else if (eventUntil.getElement(e).value === "取消") {

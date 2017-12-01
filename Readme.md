@@ -15,7 +15,7 @@ URL是对应于知识点的；
 Tag可以写多个，不同的Tag之间用分号隔开。
 当点击确定时，刷新已有的卡片或者新增卡片，所填写的内容以主页面中所示的形式展现出来；
 当点击取消时，返回主页面。
-    > ![Edit](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Edit.png)
+    > ![Edit](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Edit-v2.png)
 - 点击知识点的Title时，弹出该知识点对应的参考URL。
 
 
