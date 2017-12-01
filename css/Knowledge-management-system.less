@@ -1,0 +1,269 @@
+html {
+  background-color: #e9e8e8;
+}
+
+//navigation bar
+#head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /*55px*/
+  height: 0.55rem;
+  border: none;
+  background-color: #9CCC65;
+}
+#menu {
+  margin-left: 8%;
+}
+
+#search-box {
+  margin-left: 8%;
+  width: 60%;
+  height: 0.28rem;
+  //placeholder的字体大小
+  font-size: 0.16rem;
+}
+#search {
+  margin-left: 2%;
+}
+
+
+//card 0
+#card-0 {
+  position: relative;
+  margin: 0.1rem auto;
+  width: 96%;
+  border: 0.01rem solid #979797;
+  border-radius: 0.1rem;
+  background-color: #fff;
+  .title {
+    margin: 0.1rem;
+    font-size: 0.34rem;
+  }
+  .trash {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+  .tags {
+    margin-left: 0.14rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.18rem; //不知道为什么设置在span里不奏效？！
+    span {
+      border: 0.01rem solid #979797;
+      border-radius: 50%;
+    }
+  }
+  .content {
+    margin: 0.1rem;
+    .name {
+      font-size: 0.24rem;
+      //禁止换行
+      white-space: nowrap;
+      //顶格显示
+      vertical-align: top
+    }
+    .value {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 2%;
+      font-size: 0.24rem;
+
+    }
+    .one {
+      .value {
+        .progress-bar {
+          //定义1rem==100%的进度
+          width: 1rem;
+          height:0.08rem;
+          background-color: #3EBC24;
+          border: none;
+        }
+        span {
+          padding-left: 0.04rem;
+        }
+      }
+    }
+    .two {
+      .eva-img {
+        padding: 0.015rem;
+      }
+    }
+  }
+}
+
+
+//card 1
+#card-1 {
+  position: relative;
+  margin: 0.1rem auto;
+  width: 96%;
+  border: 0.01rem solid #979797;
+  border-radius: 0.1rem;
+  background-color: #fff;
+  .title {
+    margin: 0.1rem;
+    font-size: 0.34rem;
+  }
+  .trash {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+  .tags {
+    margin-left: 0.1rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.18rem; //不知道为什么设置在span里不奏效？！
+    span {
+      border: 0.01rem solid #979797;
+      border-radius: 50%;
+    }
+  }
+  .content {
+    margin: 0.1rem;
+    .name {
+      font-size: 0.24rem;
+      //禁止换行
+      white-space: nowrap;
+      //顶格显示
+      vertical-align: top
+    }
+    .value {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 2%;
+      font-size: 0.24rem;
+
+    }
+    .one {
+      .progress-bar {
+          //定义1rem==100%的进度
+          width: 0.75rem;
+          height: 0.08rem;
+          background-color: #3EBC24;
+          border: none;
+      }
+      span {
+          padding-left: 0.04rem;
+      }
+    }
+    .two {
+      .eva-img {
+        padding: 0.015rem;
+      }
+    }
+  }
+}
+
+
+//add
+#add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 0.45rem;
+  width: 100%;
+  background-color: #e9e8e8;
+}
+
+
+//点击垃圾桶之后的遮罩
+#cover {
+  position:fixed;
+  top: 0;
+  left: 0;
+  filter: alpha(opacity=60);
+  opacity: .6;
+  -moz-opacity: .6;
+  background-color: #777;
+  z-index: 1;
+  display:none;
+}
+
+
+//点击垃圾桶后弹出的确认框
+#delDiv {
+  position: fixed;
+  width: 40%;
+  height: 0.6rem;
+  padding: 0.2rem;
+  border: 0.01rem solid #9b9b9b;
+  z-index: 2;
+  font-size: 0.14rem;
+  background-color: #E9E8E8;
+  p {
+    height: 0.4rem;
+  }
+  p:nth-child(2) {
+    display: flex;
+    justify-content: space-around;
+  }
+  input {
+    width: 0.70rem;
+    height: 0.30rem;
+    border: 0.01rem solid #9b9b9b;
+  }
+  input:nth-child(1) {
+    background-color: #12BD27;
+  }
+  input:nth-child(2) {
+    background-color: #E10A0A;
+  }
+}
+
+//编辑/添加页面
+#edit {
+  display: none;
+  width: 100%;
+  font-size: 0.26rem;
+  table {
+    margin: 0.1rem auto;
+    border-collapse: separate;
+    border-spacing: 0.25rem;
+  }
+  input, textarea {
+    border: 0.01rem solid #979797;
+  }
+  .notes {
+    //顶格显示
+    vertical-align: top
+  }
+  p {
+    margin: 0.05rem 20%;
+    display: flex;
+    justify-content: space-around;
+    input {
+      width: 1rem;
+      height: 0.4rem;
+      border: 0.01rem solid #9b9b9b;
+    }
+    input:nth-child(1) {
+      background-color: #12BD27;
+    }
+    input:nth-child(2) {
+      background-color: #E10A0A;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=375, initial-scale=0.5, maximum-scale=0.5, user-scalable=0">-->
+    <title>Knowledge management system</title>
+    <link rel="stylesheet" type="text/css" href="css/initial.css">
+    <link rel="stylesheet" type="text/css" href="css/Knowledge-management-system.css">
+    <!-- 阿里高清方案 1rem==100px-->
+    <script>!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);
+    flex(100, 1);</script>
+    <script type="text/javascript" src="script/Knowledge-management-system.js"></script>
+    <script type="text/javascript" src="script/event.js"></script>
+    <script type="text/javascript" src="script/data.js"></script>
+
+</head>
+<body>
+<!--navigation bar-->
+    <div id="head">
+        <img src="Picture/Material/Menu.png" alt="Menu" id="menu">
+        <input type="text" placeholder="Knowledge keywords/Tags" id="search-box">
+        <img src="Picture/Material/Glyphs/Search.png" alt="Search" id="search">
+    </div>
+
+<!--cards-->
+<div id="cards">
+    <div id="card-0">
+        <p class="title">关于float的那些事儿</p>
+        <table class="content">
+            <tr class="one">
+                <td class="name">学习进度：</td>
+                <td class="value">
+                    <div class="progress-bar"></div>
+                    <span>100%</span>
+                </td>
+            </tr>
+            <tr class="two">
+                <td class="name">知识评价：</td>
+                <td class="value">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                </td>
+            </tr>
+            <tr class="three">
+                <td class="name">学习笔记：</td>
+                <td class="value">
+                    <p>关于float的那些事儿关于float的那些事儿… <a href="#">view more</a></p>
+
+                </td>
+            </tr>
+        </table>
+        <div class="tags">
+            <span>Tag1</span>
+            <span>Tag2</span>
+            <span>Tag3</span>
+        </div>
+        <img src="Picture/Material/Trash.png" alt="trash" class="trash">
+    </div>
+    <div id="card-1">
+        <p class="title">position知多少</p>
+        <table class="content">
+            <tr class="one">
+                <td class="name">学习进度：</td>
+                <td class="value">
+                    <div class="progress-bar"></div>
+                    <span>75%</span>
+                </td>
+            </tr>
+            <tr class="two">
+                <td class="name">知识评价：</td>
+                <td class="value">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                    <img src="Picture/Material/Star%201.png" alt="star" class="eva-img">
+                </td>
+            </tr>
+            <tr class="three">
+                <td class="name">学习笔记：</td>
+                <td class="value">
+                    <p>position知多少position知多少position知多少… <a href="#">view more</a></p>
+                </td>
+            </tr>
+        </table>
+        <div class="tags">
+            <span>Tag1</span>
+            <span>Tag2</span>
+        </div>
+        <img src="Picture/Material/Trash.png" alt="trash" class="trash">
+    </div>
+</div>
+
+
+<!--add-->
+    <div id="add">
+        <img src="Picture/Material/Add.png" alt="add">
+    </div>
+
+
+<!--删除确认的遮罩-->
+<div id="cover"></div>
+
+
+<!--添加或者编辑页面-->
+<div id="edit">
+    <form action="">
+        <table>
+            <tr>
+                <td>Title: </td>
+                <td><input type="text" id="edit-tit"></td>
+            </tr>
+            <tr>
+                <td>URL: </td>
+                <td><input type="text" id="edit-url"></td>
+            </tr>
+            <tr>
+                <td>学习进度: </td>
+                <td><input type="text" id="edit-sch">% (1%~100%)</td>
+            </tr>
+            <tr>
+                <td>知识评价: </td>
+                <td><input type="text" id="edit-eva">颗星 (1~5)</td>
+            </tr>
+            <tr>
+                <td class="notes">学习笔记: </td>
+                <td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td>Tags: </td>
+                <td><input type="text" id="edit-tag"></td>
+            </tr>
+        </table>
+        <p id="edit-conf">
+            <input type="button" value="确定">
+            <input type="button" value="取消">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>
