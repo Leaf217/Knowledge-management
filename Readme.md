@@ -1,12 +1,12 @@
 ## Knowledge managment system
 实现一个知识管理系统，如下图所示为主页面：<br>
-> ![Delete-mention](https://github.com/Leaf217/Knowledge-management/raw/master/Picture/Home-page.png)
+> ![Delete-mention](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Home-page.png)
 
 第一阶段任务如下：<br>
 - 实现如上所示的页面
 - 当点击卡片右上角的删除按钮时，弹出如下图所示的删除框，并且背景是遮罩。
 当点击取消时，返回主页面，当点击确定时，删除此卡片。<br>
-    > ![Delete-mention](https://github.com/Leaf217/Knowledge-management/raw/master/Picture/Delete-mention.png)
+    > ![Delete-mention](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Delete-mention.png)
 - 当长按标签或者点击加号时，切换到如下所示的编辑页面。
 Title为知识点的标题；
 URL是对应于知识点的；
@@ -15,7 +15,7 @@ URL是对应于知识点的；
 Tag可以写多个，不同的Tag之间用分号隔开。
 当点击确定时，刷新已有的卡片或者新增卡片，所填写的内容以主页面中所示的形式展现出来；
 当点击取消时，返回主页面。
-    > ![Edit](https://github.com/Leaf217/Knowledge-management/raw/master/Picture/Edit.png)
+    > ![Edit](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Edit.png)
 - 点击知识点的Title时，弹出该知识点对应的参考URL。
 
 
