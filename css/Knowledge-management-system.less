@@ -28,8 +28,8 @@ html {
 }
 
 
-//card 0
-#card-0 {
+//cards的统一样式
+.card {
   position: relative;
   margin: 0.1rem auto;
   width: 96%;
@@ -73,11 +73,11 @@ html {
       font-size: 0.24rem;
 
     }
-    .one {
+    .progress {
       .value {
         .progress-bar {
           //定义1rem==100%的进度
-          width: 1rem;
+          //width: 1rem;
           height:0.08rem;
           background-color: #3EBC24;
           border: none;
@@ -87,75 +87,18 @@ html {
         }
       }
     }
-    .two {
+    .evaluation {
       .eva-img {
         padding: 0.015rem;
       }
     }
-  }
-}
-
-
-//card 1
-#card-1 {
-  position: relative;
-  margin: 0.1rem auto;
-  width: 96%;
-  border: 0.01rem solid #979797;
-  border-radius: 0.1rem;
-  background-color: #fff;
-  .title {
-    margin: 0.1rem;
-    font-size: 0.34rem;
-  }
-  .trash {
-    position: absolute;
-    top: 0.1rem;
-    right: 0.1rem;
-    width: 0.3rem;
-    height: 0.3rem;
-  }
-  .tags {
-    margin-left: 0.1rem;
-    margin-bottom: 0.1rem;
-    font-size: 0.18rem; //不知道为什么设置在span里不奏效？！
-    span {
-      border: 0.01rem solid #979797;
-      border-radius: 50%;
-    }
-  }
-  .content {
-    margin: 0.1rem;
-    .name {
-      font-size: 0.24rem;
-      //禁止换行
-      white-space: nowrap;
-      //顶格显示
-      vertical-align: top
-    }
-    .value {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding-left: 2%;
-      font-size: 0.24rem;
-
-    }
-    .one {
-      .progress-bar {
-          //定义1rem==100%的进度
-          width: 0.75rem;
-          height: 0.08rem;
-          background-color: #3EBC24;
-          border: none;
-      }
-      span {
-          padding-left: 0.04rem;
-      }
-    }
-    .two {
-      .eva-img {
-        padding: 0.015rem;
+    .notes {
+      //限定p的宽度，再利用text-overflow属性可以只显示笔记的一部分
+      p {
+        width: 3rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
@@ -221,7 +164,7 @@ html {
 
 //编辑/添加页面
 #edit {
-  display: none;
+  //display: none;
   width: 100%;
   font-size: 0.26rem;
   table {

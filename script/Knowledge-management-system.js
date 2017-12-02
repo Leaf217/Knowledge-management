@@ -3,13 +3,67 @@
  */
 
 window.onload = function () {
-    var cards = document.getElementById('cards');
+    var cardsHtml = document.getElementById('cards');
     var cover = document.getElementById('cover');
     var add = document.getElementById('add');
     var edit = document.getElementById('edit');
 
-    eventUntil.addHandler(cards, 'click', clickTrash);
-    eventUntil.addHandler(add, 'click', addCard);
+    eventUntil.addHandler(cardsHtml, 'click', clickTrash);//添加点击垃圾桶事件
+    eventUntil.addHandler(add, 'click', addCard);//添加点击加号事件
+
+
+    var cards = localStorage.getItem("cards");
+    cards = JSON.parse(cards);
+    if (cards.length > 0) {
+        for (var i = 0;i < cards.length;i++) {
+            var card = cards[i];
+
+            var str ='';
+            str += '<div class="card">'
+                +   '<p class="title">' + card.title + '</p>'
+                +   '<table class="content">'
+                +       '<tr class="progress">'
+                +           '<td class="name">学习进度：</td>'
+                +           '<td class="value">'
+                +               '<div class="progress-bar"></div>'
+                +               '<span>' + card.progress + '%</span>'
+                +           '</td>'
+                +       '</tr>'
+                +       '<tr class="evaluation">'
+                +           '<td class="name">知识评价：</td>'
+                +           '<td class="value stars"></td>'
+                +       '</tr>'
+                +       '<tr class="notes">'
+                +           '<td class="name">学习笔记：</td>'
+                +           '<td class="value">'
+                +               '<p class="notes-con"></p>'
+                +               '<a href="#">view more</a>'
+                +           '</td>'
+                +       '</tr>'
+                +   '</table>'
+                +   '<div class="tags"></div>'
+                +   '<img src="Picture/Material/Trash.png" alt="trash" class="trash">'
+                + '</div>';
+            cardsHtml.innerHTML += str;
+
+            var progressBar = document.getElementsByClassName('progress-bar');
+            progressBar[i].style.width = card.progress / 100  + 'rem';
+
+            var stars = document.getElementsByClassName('stars');
+            for (var j = 0;j < card.evaluation;j++) {
+                stars[i].innerHTML += '<img src="Picture/Material/Star%201.png" alt="star" class="eva-img">';
+            }
+
+            var notesCon = document.getElementsByClassName('notes-con');
+            notesCon[i].innerHTML = card.notes;
+
+            var tags = document.getElementsByClassName('tags');
+            for (var k = 0;k < card.tags.length;k++) {
+                tags[i].innerHTML += '<span>' + card.tags[k] + '</span>';
+            }
+        }
+    }
+
 
 
     /**
@@ -17,13 +71,25 @@ window.onload = function () {
      */
     function addCard() {
 
-        cards.style.display = 'none';
+        var str = '';
+        str += '<form action="">'
+            +  '<table>'
+            +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"></td></tr>'
+            +  '<tr><td>URL: </td><td><input type="text" id="edit-url"></td></tr>'
+            +  '<tr><td>学习进度: </td><td><input type="text" id="edit-sch">% (1%~100%)</td></tr>'
+            +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星 (1~5)</td></tr>'
+            +  '<tr><td class="notes">学习笔记: </td><td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td></tr>'
+            +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
+            +  '</table>'
+            +  '<p id="edit-conf"><input type="button" value="确定"><input type="button" value="取消"></p>'
+            +  '</form>'
+        cardsHtml.style.display = 'none';
         add.style.display = 'none';
-        edit.style.display = 'block';
+        edit.innerHTML = str;
+
 
         var edit_conf = document.getElementById('edit-conf');
         eventUntil.addHandler(edit_conf, 'click', editConf);
-
         /**
          * 确定 or 取消触发的事件
          * @param e
@@ -36,23 +102,26 @@ window.onload = function () {
                 var edit_url = document.getElementById('edit-url').value;
                 var edit_sch = document.getElementById('edit-sch').value;
                 var edit_eva = document.getElementById('edit-eva').value;
-                var edit_not = document.getElementById('edit-not').value;//取出一部分字:text-overflow+width
-
-                var edit_tag = document.getElementById('edit-tag').value;//通过分号分割出来
-                // var newCard = {
-                //     "title": edit_tit,
-                //     "URL": edit_url,
-                //     "学习进度": edit_sch,
-                //     "知识评价": edit_eva,
-                //     "学习笔记": edit_not,
-                //     "tags": ['Tag1', 'Tag2', 'Tag3']
-                // }
-
+                var edit_not = document.getElementById('edit-not').value;
+                var edit_tag = document.getElementById('edit-tag').value;//通过分号分割
+                edit_tag = edit_tag.split(";");
+                var newCard = {
+                    "title": edit_tit,
+                    "URL": edit_url,
+                    "learning progress": edit_sch,
+                    "knowledge evaluation": edit_eva,
+                    "learning notes": edit_not,
+                    "tags": edit_tag
+                }
+                var cards = localStorage.getItem("cards");
+                cards = JSON.parse(cards);
+                cards.push(newCard);
             }
             else if (eventUntil.getElement(e).value === "取消") {
-                cards.style.display = 'block';
+                cardsHtml.style.display = 'block';
                 add.style.display = 'flex';
-                edit.style.display = 'none';
+                edit.innerHTML = '';
+
             }
         }
     }
@@ -87,6 +156,8 @@ window.onload = function () {
                     var cards = localStorage.getItem("cards");
                     cards = JSON.parse(cards);
                     cards.splice(cardIndex, 1); //删除数据
+                    cards = JSON.stringify(cards); //将JSON对象转化成字符串
+                    localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
 
                     cover.style.display = 'none';
                     delDiv.parentNode.removeChild(delDiv); //删除弹出的确认框

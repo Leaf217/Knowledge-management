@@ -22,7 +22,7 @@ html {
 #search {
   margin-left: 2%;
 }
-#card-0 {
+.card {
   position: relative;
   margin: 0.1rem auto;
   width: 96%;
@@ -30,107 +30,57 @@ html {
   border-radius: 0.1rem;
   background-color: #fff;
 }
-#card-0 .title {
+.card .title {
   margin: 0.1rem;
   font-size: 0.34rem;
 }
-#card-0 .trash {
+.card .trash {
   position: absolute;
   top: 0.1rem;
   right: 0.1rem;
   width: 0.3rem;
   height: 0.3rem;
 }
-#card-0 .tags {
+.card .tags {
   margin-left: 0.14rem;
   margin-bottom: 0.1rem;
   font-size: 0.18rem;
 }
-#card-0 .tags span {
+.card .tags span {
   border: 0.01rem solid #979797;
   border-radius: 50%;
 }
-#card-0 .content {
+.card .content {
   margin: 0.1rem;
 }
-#card-0 .content .name {
+.card .content .name {
   font-size: 0.24rem;
   white-space: nowrap;
   vertical-align: top;
 }
-#card-0 .content .value {
+.card .content .value {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding-left: 2%;
   font-size: 0.24rem;
 }
-#card-0 .content .one .value .progress-bar {
-  width: 1rem;
+.card .content .progress .value .progress-bar {
   height: 0.08rem;
   background-color: #3EBC24;
   border: none;
 }
-#card-0 .content .one .value span {
+.card .content .progress .value span {
   padding-left: 0.04rem;
 }
-#card-0 .content .two .eva-img {
+.card .content .evaluation .eva-img {
   padding: 0.015rem;
 }
-#card-1 {
-  position: relative;
-  margin: 0.1rem auto;
-  width: 96%;
-  border: 0.01rem solid #979797;
-  border-radius: 0.1rem;
-  background-color: #fff;
-}
-#card-1 .title {
-  margin: 0.1rem;
-  font-size: 0.34rem;
-}
-#card-1 .trash {
-  position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
-  width: 0.3rem;
-  height: 0.3rem;
-}
-#card-1 .tags {
-  margin-left: 0.1rem;
-  margin-bottom: 0.1rem;
-  font-size: 0.18rem;
-}
-#card-1 .tags span {
-  border: 0.01rem solid #979797;
-  border-radius: 50%;
-}
-#card-1 .content {
-  margin: 0.1rem;
-}
-#card-1 .content .name {
-  font-size: 0.24rem;
+.card .content .notes p {
+  width: 3rem;
   white-space: nowrap;
-  vertical-align: top;
-}
-#card-1 .content .value {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 2%;
-  font-size: 0.24rem;
-}
-#card-1 .content .one .progress-bar {
-  width: 0.75rem;
-  height: 0.08rem;
-  background-color: #3EBC24;
-  border: none;
-}
-#card-1 .content .one span {
-  padding-left: 0.04rem;
-}
-#card-1 .content .two .eva-img {
-  padding: 0.015rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #add {
   display: flex;
@@ -182,7 +132,6 @@ html {
   background-color: #E10A0A;
 }
 #edit {
-  display: none;
   width: 100%;
   font-size: 0.26rem;
 }

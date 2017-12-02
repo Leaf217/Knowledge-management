@@ -1,20 +1,24 @@
+/**
+ * 用于存放所有cards的信息
+ */
+
 
 //JSON对象
 var cards = [
     {
         "title": "关于float的那些事儿",
         "URL": "http://www.w3school.com.cn/cssref/pr_class_float.asp",
-        "学习进度": 100,
-        "知识评价": 3,
-        "学习笔记": "关于float的那些事儿关于float的那些事儿关于float的那些事儿关于float的那些事儿关于float的那些事儿关于float的那些事儿",
+        "progress": 100,
+        "evaluation": 3,
+        "notes": "关于float的那些事儿关于float的那些事儿关于float的那些事儿关于float的那些事儿关于float的那些事儿关于float的那些事儿",
         "tags": ['Tag1', 'Tag2', 'Tag3']
     },
     {
         "title": "position知多少",
         "URL": "http://www.w3school.com.cn/cssref/pr_class_position.asp",
-        "学习进度": 75,
-        "知识评价": 4,
-        "学习笔记": "position知多少position知多少position知多少position知多少position知多少position知多少position知多少position知多少position知多少",
+        "progress": 75,
+        "evaluation": 4,
+        "notes": "position知多少position知多少position知多少position知多少position知多少position知多少position知多少position知多少position知多少",
         "tags": ['Tag1', 'Tag2']
     }
 ]
