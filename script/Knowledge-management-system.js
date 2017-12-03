@@ -11,9 +11,9 @@ window.onload = function () {
     eventUntil.addHandler(cardsHtml, 'click', clickTrash);//添加点击垃圾桶事件
     eventUntil.addHandler(add, 'click', addCard);//添加点击加号事件
 
-
     var cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
+
     if (cards.length > 0) {
         for (var i = 0;i < cards.length;i++) {
             var card = cards[i];
@@ -37,7 +37,7 @@ window.onload = function () {
                 +           '<td class="name">学习笔记：</td>'
                 +           '<td class="value">'
                 +               '<p class="notes-con"></p>'
-                +               '<a href="#">view more</a>'
+                +               '<a href="#" class="view-more">view more</a>'
                 +           '</td>'
                 +       '</tr>'
                 +   '</table>'
@@ -46,12 +46,13 @@ window.onload = function () {
                 + '</div>';
             cardsHtml.innerHTML += str;
 
+            //从json中读取出来的数据写入上边定义的html结构中
             var progressBar = document.getElementsByClassName('progress-bar');
             progressBar[i].style.width = card.progress / 100  + 'rem';
 
             var stars = document.getElementsByClassName('stars');
             for (var j = 0;j < card.evaluation;j++) {
-                stars[i].innerHTML += '<img src="Picture/Material/Star%201.png" alt="star" class="eva-img">';
+                stars[i].innerHTML += '<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">';
             }
 
             var notesCon = document.getElementsByClassName('notes-con');
@@ -61,8 +62,39 @@ window.onload = function () {
             for (var k = 0;k < card.tags.length;k++) {
                 tags[i].innerHTML += '<span>' + card.tags[k] + '</span>';
             }
+
+            document.getElementsByClassName('card')[i].id = 'card-' + i; //为每个card添加id
         }
     }
+
+
+    eventUntil.addHandler(cardsHtml, 'click', viewMore);
+    /**
+     * 点击view more事件：展开笔记详情
+     */
+
+    function viewMore(e) {
+        var e = eventUntil.getEvent(e);
+        if (eventUntil.getElement(e).className === "view-more") {
+            var notesCon = eventUntil.getElement(e).parentNode.childNodes[0]; //学习笔记内容的p标签
+            notesCon.style.width = 'auto';
+            notesCon.style.whiteSpace = 'normal';
+            notesCon.innerHTML += '<a href="#" class="hide"> hide</a>';
+            eventUntil.getElement(e).innerHTML = '';
+
+            //document.getElementsByClassName('hide').length - 1  点击的hide对应的a标签
+            eventUntil.addHandler(document.getElementsByClassName('hide')[document.getElementsByClassName('hide').length - 1], 'click', hide);
+            function hide() {
+                notesCon.style.width = '3rem'; //指向放学习笔记内容的p标签
+                notesCon.style.whiteSpace = 'nowrap';
+                notesCon.removeChild(notesCon.childNodes[1]); //noteCon.childNodes[1]: 学习笔记内容p标签内的hide（a标签）
+                eventUntil.getElement(e).innerHTML = 'view more';
+            }
+        }
+    }
+
+
+
 
 
 
@@ -82,7 +114,7 @@ window.onload = function () {
             +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
             +  '</table>'
             +  '<p id="edit-conf"><input type="button" value="确定"><input type="button" value="取消"></p>'
-            +  '</form>'
+            +  '</form>';
         cardsHtml.style.display = 'none';
         add.style.display = 'none';
         edit.innerHTML = str;
@@ -108,14 +140,67 @@ window.onload = function () {
                 var newCard = {
                     "title": edit_tit,
                     "URL": edit_url,
-                    "learning progress": edit_sch,
-                    "knowledge evaluation": edit_eva,
-                    "learning notes": edit_not,
+                    "progress": edit_sch,
+                    "evaluation": edit_eva,
+                    "notes": edit_not,
                     "tags": edit_tag
                 }
-                var cards = localStorage.getItem("cards");
-                cards = JSON.parse(cards);
                 cards.push(newCard);
+                cardsHtml.innerHTML = '';
+                if (cards.length > 0) {
+                    for (var i = 0;i < cards.length;i++) {
+                        var card = cards[i];
+
+                        var str ='';
+                        str += '<div class="card">'
+                            +   '<p class="title">' + card.title + '</p>'
+                            +   '<table class="content">'
+                            +       '<tr class="progress">'
+                            +           '<td class="name">学习进度：</td>'
+                            +           '<td class="value">'
+                            +               '<div class="progress-bar"></div>'
+                            +               '<span>' + card.progress + '%</span>'
+                            +           '</td>'
+                            +       '</tr>'
+                            +       '<tr class="evaluation">'
+                            +           '<td class="name">知识评价：</td>'
+                            +           '<td class="value stars"></td>'
+                            +       '</tr>'
+                            +       '<tr class="notes">'
+                            +           '<td class="name">学习笔记：</td>'
+                            +           '<td class="value">'
+                            +               '<p class="notes-con"></p>'
+                            +               '<a href="#" class="view-more">view more</a>'
+                            +           '</td>'
+                            +       '</tr>'
+                            +   '</table>'
+                            +   '<div class="tags"></div>'
+                            +   '<img src="Picture/Material/Trash.png" alt="trash" class="trash">'
+                            + '</div>';
+                        cardsHtml.innerHTML += str;
+
+                        var progressBar = document.getElementsByClassName('progress-bar');
+                        progressBar[i].style.width = card.progress / 100  + 'rem';
+
+                        var stars = document.getElementsByClassName('stars');
+                        for (var j = 0;j < card.evaluation;j++) {
+                            stars[i].innerHTML += '<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">';
+                        }
+
+                        var notesCon = document.getElementsByClassName('notes-con');
+                        notesCon[i].innerHTML = card.notes;
+
+                        var tags = document.getElementsByClassName('tags');
+                        for (var k = 0;k < card.tags.length;k++) {
+                            tags[i].innerHTML += '<span>' + card.tags[k] + '</span>';
+                        }
+                        document.getElementsByClassName('card')[i].id = 'card-' + i;
+                    }
+
+                }
+                cardsHtml.style.display = 'block';
+                add.style.display = 'flex';
+                edit.innerHTML = '';
             }
             else if (eventUntil.getElement(e).value === "取消") {
                 cardsHtml.style.display = 'block';
@@ -215,5 +300,7 @@ window.onload = function () {
         eventUntil.preventDefault(e);
     }
 
-
+    //全部处理完毕后再将数据存到localStorage中
+    cards = JSON.stringify(cards); //将JSON对象转化成字符串
+    localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
 }
