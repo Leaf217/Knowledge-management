@@ -59,7 +59,7 @@ var eventUntil = {
             e.returnValue = false;
         }
     },
-    //阻止事件冒牌
+    //阻止事件冒泡
     stopPropagation: function (e) {
         if (e.stopPropagation) {
             e.stopPropagation(e);

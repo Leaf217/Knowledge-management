@@ -8,12 +8,14 @@ window.onload = function () {
     var add = document.getElementById('add');
     var edit = document.getElementById('edit');
 
-    eventUntil.addHandler(cardsHtml, 'click', clickTrash);//添加点击垃圾桶事件
+    // eventUntil.addHandler(cardsHtml, 'click', clickTrash);//添加点击垃圾桶事件
     eventUntil.addHandler(add, 'click', addCard);//添加点击加号事件
+    eventUntil.addHandler(cardsHtml, 'click', viewMore);//添加点击view more事件
 
+
+    //从localStorage中读取数据并将cards动态添加到页面
     var cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
-
     if (cards.length > 0) {
         for (var i = 0;i < cards.length;i++) {
             var card = cards[i];
@@ -66,13 +68,25 @@ window.onload = function () {
             document.getElementsByClassName('card')[i].id = 'card-' + i; //为每个card添加id
         }
     }
+    cards = JSON.stringify(cards); //将JSON对象转化成字符串
+    localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
 
 
-    eventUntil.addHandler(cardsHtml, 'click', viewMore);
+
+    var cardClick = document.getElementsByClassName('card');
+    for (var i = 0;i < cardClick.length;i++) {
+        console.log(this);
+        eventUntil.addHandler(cardsHtml, 'click', clickTrash);//添加点击垃圾桶事件
+        eventUntil.addHandler(cardClick[i], 'click', addCard);
+    }
+
+
+
+
+
     /**
      * 点击view more事件：展开笔记详情
      */
-
     function viewMore(e) {
         var e = eventUntil.getEvent(e);
         if (eventUntil.getElement(e).className === "view-more") {
@@ -137,16 +151,20 @@ window.onload = function () {
                 var edit_not = document.getElementById('edit-not').value;
                 var edit_tag = document.getElementById('edit-tag').value;//通过分号分割
                 edit_tag = edit_tag.split(";");
-                var newCard = {
-                    "title": edit_tit,
-                    "URL": edit_url,
-                    "progress": edit_sch,
-                    "evaluation": edit_eva,
-                    "notes": edit_not,
-                    "tags": edit_tag
-                }
+                var newCard = {};
+                newCard.title = edit_tit;
+                newCard.URL = edit_url;
+                newCard.progress = edit_sch;
+                newCard.evaluation = edit_eva;
+                newCard.notes = edit_not;
+                newCard.tags = edit_tag;
+
+
+                var cards = localStorage.getItem("cards");
+                cards = JSON.parse(cards);
                 cards.push(newCard);
                 cardsHtml.innerHTML = '';
+
                 if (cards.length > 0) {
                     for (var i = 0;i < cards.length;i++) {
                         var card = cards[i];
@@ -201,12 +219,13 @@ window.onload = function () {
                 cardsHtml.style.display = 'block';
                 add.style.display = 'flex';
                 edit.innerHTML = '';
+                cards = JSON.stringify(cards); //将JSON对象转化成字符串
+                localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
             }
             else if (eventUntil.getElement(e).value === "取消") {
                 cardsHtml.style.display = 'block';
                 add.style.display = 'flex';
                 edit.innerHTML = '';
-
             }
         }
     }
@@ -300,7 +319,6 @@ window.onload = function () {
         eventUntil.preventDefault(e);
     }
 
-    //全部处理完毕后再将数据存到localStorage中
-    cards = JSON.stringify(cards); //将JSON对象转化成字符串
-    localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
+
+
 }
