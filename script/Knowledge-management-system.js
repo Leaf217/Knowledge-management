@@ -101,7 +101,7 @@ window.onload = function () {
                         +  '<table>'
                         +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"></td></tr>'
                         +  '<tr><td>URL: </td><td><input type="text" id="edit-url"></td></tr>'
-                        +  '<tr><td>学习进度: </td><td><input type="text" id="edit_pro">% (1%~100%)</td></tr>'
+                        +  '<tr><td>学习进度: </td><td><input type="text" id="edit-pro">% (1%~100%)</td></tr>'
                         +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星 (1~5)</td></tr>'
                         +  '<tr><td class="notes">学习笔记: </td><td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td></tr>'
                         +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
@@ -126,7 +126,7 @@ window.onload = function () {
 
                     document.getElementById('edit-tit').value = cards[cardId].title;
                     document.getElementById('edit-url').value = cards[cardId].URL;
-                    document.getElementById('edit_pro').value = cards[cardId].progress;
+                    document.getElementById('edit-pro').value = cards[cardId].progress;
                     document.getElementById('edit-eva').value = cards[cardId].evaluation;
                     document.getElementById('edit-not').value = cards[cardId].notes;
                     document.getElementById('edit-tag').value = cards[cardId].tags;
@@ -138,7 +138,7 @@ window.onload = function () {
                             //取得用户修改/未修改的内容
                             cards[cardId].title = document.getElementById('edit-tit').value;
                             cards[cardId].URL = document.getElementById('edit-url').value;
-                            cards[cardId].progress = document.getElementById('edit_pro').value;
+                            cards[cardId].progress = document.getElementById('edit-pro').value;
                             cards[cardId].evaluation = document.getElementById('edit-eva').value;
                             cards[cardId].notes = document.getElementById('edit-not').value;
                             cards[cardId].tags = document.getElementById('edit-tag').value.split(';');//通过分号分割
@@ -247,7 +247,7 @@ window.onload = function () {
             +  '<table>'
             +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"></td></tr>'
             +  '<tr><td>URL: </td><td><input type="text" id="edit-url"></td></tr>'
-            +  '<tr><td>学习进度: </td><td><input type="text" id="edit_pro">% (1%~100%)</td></tr>'
+            +  '<tr><td>学习进度: </td><td><input type="text" id="edit-pro">% (1%~100%)</td></tr>'
             +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星 (1~5)</td></tr>'
             +  '<tr><td class="notes">学习笔记: </td><td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td></tr>'
             +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
@@ -258,6 +258,14 @@ window.onload = function () {
         cardsHtml.style.display = 'none';
         add.style.display = 'none';
         edit.innerHTML = str;
+
+        var editPro = document.getElementById('edit-pro');
+        editPro.onchange = function (ev) {
+            if (!(parseInt(editPro.value) <= 100 && parseInt(editPro.value) >=0 && parseInt(editPro.value) == editPro.value)) {//用==：parseInt之后是number类型，而editPro是string类型
+                var str = '';
+            }
+        }
+
 
         var edit_conf = document.getElementById('edit-conf');
         eventUntil.addHandler(edit_conf, 'click', addConf);
@@ -272,15 +280,35 @@ window.onload = function () {
      */
     function addConf(e) {
         var e = eventUntil.getEvent(e);
-        if (eventUntil.getElement(e).value === "确定") {
 
+        if (eventUntil.getElement(e).value === "确定") {
             var newCard = {};
+
+            var editPro = document.getElementById('edit-pro').value;
+
+
+            if (parseInt(editPro) <= 100 && parseInt(editPro) >=0 && parseInt(editPro) == editPro) {//用==：parseInt之后是number类型，而editPro是string类型
+                newCard.progress = editPro;
+            }
+            else {
+                alert('请输入1到100的整数');
+            }
+
+            var editEva = document.getElementById('edit-eva').value;
+            if (parseInt(editEva) <= 5 && parseInt(editEva) >=0 && parseInt(editEva) == editEva) {
+                newCard.evaluation = editEva;
+            }
+            else {
+                alert('请输入1到5的整数');
+            }
+
+
 
             //取得用户输入的内容
             newCard.title = document.getElementById('edit-tit').value;
             newCard.URL = document.getElementById('edit-url').value;
-            newCard.progress = document.getElementById('edit_pro').value;
-            newCard.evaluation = document.getElementById('edit-eva').value;
+
+
             newCard.notes = document.getElementById('edit-not').value;
             newCard.tags = document.getElementById('edit-tag').value.split(';');//通过分号分割
 

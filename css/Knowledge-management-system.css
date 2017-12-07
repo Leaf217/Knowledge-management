@@ -163,3 +163,7 @@ html {
 #edit p input:nth-child(2) {
   background-color: #E10A0A;
 }
+#edit-pro,
+#edit-eva {
+  width: 20%;
+}
