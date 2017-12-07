@@ -140,6 +140,9 @@ html {
   border-collapse: separate;
   border-spacing: 0.25rem;
 }
+#edit table tr td:first-child {
+  width: 1.2rem;
+}
 #edit input,
 #edit textarea {
   border: 0.01rem solid #979797;

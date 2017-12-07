@@ -247,7 +247,7 @@ window.onload = function () {
             +  '<table>'
             +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"></td></tr>'
             +  '<tr><td>URL: </td><td><input type="text" id="edit-url"></td></tr>'
-            +  '<tr><td>学习进度: </td><td><input type="text" id="edit-pro">% (1%~100%)</td></tr>'
+            +  '<tr><td>学习进度: </td><td><input type="text" id="edit-pro">%<span> (1%~100%)</span></td></tr>'
             +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星 (1~5)</td></tr>'
             +  '<tr><td class="notes">学习笔记: </td><td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td></tr>'
             +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
@@ -260,9 +260,11 @@ window.onload = function () {
         edit.innerHTML = str;
 
         var editPro = document.getElementById('edit-pro');
+        console.log(editPro.parentNode.childNodes[2]);
         editPro.onchange = function (ev) {
             if (!(parseInt(editPro.value) <= 100 && parseInt(editPro.value) >=0 && parseInt(editPro.value) == editPro.value)) {//用==：parseInt之后是number类型，而editPro是string类型
-                var str = '';
+                editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
+                editPro.parentNode.childNodes[2].style.color = 'red';
             }
         }
 
