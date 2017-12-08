@@ -144,11 +144,14 @@ html {
   width: 1.2rem;
 }
 #edit table tr td:last-child {
-  width: 2.4rem;
+  width: 2.8rem;
 }
 #edit input,
 #edit textarea {
   border: 0.01rem solid #979797;
+}
+#edit textarea {
+  resize: none;
 }
 #edit .notes {
   vertical-align: top;
@@ -172,4 +175,7 @@ html {
 #edit-pro,
 #edit-eva {
   width: 20%;
+}
+#edit-tag {
+  width: 60%;
 }

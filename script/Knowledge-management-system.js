@@ -7,7 +7,7 @@ window.onload = function () {
     var cover = document.getElementById('cover');
     var add = document.getElementById('add');
     var edit = document.getElementById('edit');
-
+    var factor;
 
     render();
 
@@ -20,7 +20,11 @@ window.onload = function () {
         //注册事件
 
         //添加card事件
-        eventUntil.addHandler(add, 'click', editCard);
+        eventUntil.addHandler(add, 'click', function () {
+            editCard();
+            var addConfirm = document.getElementById('edit-conf');
+            eventUntil.addHandler(addConfirm, 'click', addConf);
+        });
 
         //删除事件，view more事件，hide事件，编辑事件
         var cardClick = document.getElementsByClassName('card');
@@ -96,25 +100,10 @@ window.onload = function () {
 
                 //点击card的其他地方都进入编辑页面---编辑card
                 else {
-                    var str = '';
-                    str += '<form action="">'
-                        +  '<table>'
-                        +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"></td></tr>'
-                        +  '<tr><td>URL: </td><td><input type="text" id="edit-url"></td></tr>'
-                        +  '<tr><td>学习进度: </td><td><input type="text" id="edit-pro">% (1%~100%)</td></tr>'
-                        +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星 (1~5)</td></tr>'
-                        +  '<tr><td class="notes">学习笔记: </td><td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td></tr>'
-                        +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
-                        +  '</table>'
-                        +  '<p id="edit-conf"><input type="button" value="确定"><input type="button" value="取消"></p>'
-                        +  '</form>';
+                    editCard();
 
-                    cardsHtml.style.display = 'none';
-                    add.style.display = 'none';
-                    edit.innerHTML = str;
-
-                    var edit_conf = document.getElementById('edit-conf');
-                    eventUntil.addHandler(edit_conf, 'click', editConf);
+                    var editConfirm = document.getElementById('edit-conf');
+                    eventUntil.addHandler(editConfirm, 'click', editConf);
 
                     //从localStorage中读出数据写入edit页面中
                     var cardId = this.id;
@@ -134,7 +123,7 @@ window.onload = function () {
 
                     function editConf(e) {
                         var e = eventUntil.getEvent(e);
-                        if (eventUntil.getElement(e).value === "确定") {
+                        if (eventUntil.getElement(e).value === "确定" && factor === 1) {
                             //取得用户修改/未修改的内容
                             cards[cardId].title = document.getElementById('edit-tit').value;
                             cards[cardId].URL = document.getElementById('edit-url').value;
@@ -245,12 +234,12 @@ window.onload = function () {
         var str = '';
         str += '<form action="">'
             +  '<table>'
-            +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"></td></tr>'
-            +  '<tr><td>URL: </td><td><input type="text" id="edit-url"></td></tr>'
+            +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"><span></span></td></tr>'
+            +  '<tr><td>URL: </td><td><input type="text" id="edit-url"><span></span></td></tr>'
             +  '<tr><td>学习进度: </td><td><input type="text" id="edit-pro">%<span> (1%~100%)</span></td></tr>'
-            +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星 (1~5)</td></tr>'
+            +  '<tr><td>知识评价: </td><td><input type="text" id="edit-eva">颗星<span> (1~5)</span></td></tr>'
             +  '<tr><td class="notes">学习笔记: </td><td><textarea name="" id="edit-not" cols="30" rows="10"></textarea></td></tr>'
-            +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag">(用分号分隔)</td></tr>'
+            +  '<tr><td>Tags: </td><td><input type="text" id="edit-tag"> (用分号分隔)</td></tr>'
             +  '</table>'
             +  '<p id="edit-conf"><input type="button" value="确定"><input type="button" value="取消"></p>'
             +  '</form>';
@@ -260,57 +249,137 @@ window.onload = function () {
         edit.innerHTML = str;
 
         var editTit = document.getElementById('edit-tit');
+        var editURL = document.getElementById('edit-url');
         var editPro = document.getElementById('edit-pro');
+        var editEva = document.getElementById('edit-eva');
 
         eventUntil.addHandler(editTit, 'input', OnInput);
         eventUntil.addHandler(editTit, 'porpertychange', OnPropChanged);
 
+        eventUntil.addHandler(editURL, 'input', OnInput);
+        eventUntil.addHandler(editURL, 'porpertychange', OnPropChanged);
+
+
         eventUntil.addHandler(editPro, 'input', OnInput);
         eventUntil.addHandler(editPro, 'porpertychange', OnPropChanged);
+
+        eventUntil.addHandler(editEva, 'input', OnInput);
+        eventUntil.addHandler(editEva, 'porpertychange', OnPropChanged);
+
 
 
         // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
         function OnInput (event) {
             if (this.id === "edit-tit") {
                 if (editTit.value === '') {
-                    console.log('1');
+                    editTit.parentNode.childNodes[1].innerText = '请输入标题';
+                    editTit.parentNode.childNodes[1].style.color = '#f00';
+                    factor = 0;
+                }
+                else {
+                    editTit.parentNode.childNodes[1].innerText = '';
+                    editTit.parentNode.childNodes[1].style.color = '#000';
+                    factor = 1;
                 }
             }
 
+            if (this.id === "edit-url") {
+                if (editURL.value === '') {
+                    editURL.parentNode.childNodes[1].innerText = '请输入URL';
+                    editURL.parentNode.childNodes[1].style.color = '#f00';
+                    factor = 0;
+                }
+                else {
+                    editTit.parentNode.childNodes[1].innerText = '';
+                    editTit.parentNode.childNodes[1].style.color = '#000';
+                    factor = 1;
+                }
+            }
 
             if (this.id === "edit-pro") {
                 if (parseInt(editPro.value) <= 100 && parseInt(editPro.value) >0 && parseInt(editPro.value) == editPro.value) {//用==：parseInt之后是number类型，而editPro是string类型
                     editPro.parentNode.childNodes[2].innerText = ' (1%~100%)';
                     editPro.parentNode.childNodes[2].style.color = '#000';
+                    factor = 1;
                 }
                 else {
                     editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
                     editPro.parentNode.childNodes[2].style.color = '#f00';
+                    factor = 0;
                 }
             }
 
-
+            if (this.id === "edit-eva") {
+                if (parseInt(editEva.value) <= 5 && parseInt(editEva.value) >0 && parseInt(editEva.value) == editEva.value) {
+                    editEva.parentNode.childNodes[2].innerText = ' (1~5)';
+                    editEva.parentNode.childNodes[2].style.color = '#000';
+                    factor = 1;
+                }
+                else {
+                    editEva.parentNode.childNodes[2].innerText = ' 请输入1～5的整数';
+                    editEva.parentNode.childNodes[2].style.color = '#f00';
+                    factor = 0;
+                }
+            }
         }
         // Internet Explorer
         function OnPropChanged (event) {
             if (event.propertyName.toLowerCase () == "value") {
-                if (!(parseInt(editPro.value) <= 100 && parseInt(editPro.value) >0 && parseInt(editPro.value) == editPro.value)) {//用==：parseInt之后是number类型，而editPro是string类型
-                    editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
-                    editPro.parentNode.childNodes[2].style.color = '#f00';
+                if (this.id === "edit-tit") {
+                    if (editTit.value === '') {
+                        editTit.parentNode.childNodes[1].innerText = '请输入标题';
+                        editTit.parentNode.childNodes[1].style.color = '#f00';
+                        factor = 0;
+                    }
+                    else {
+                        editTit.parentNode.childNodes[1].innerText = '';
+                        editTit.parentNode.childNodes[1].style.color = '#000';
+                        factor = 1;
+                    }
                 }
-                else {
-                    editPro.parentNode.childNodes[2].innerText = ' (1%~100%)';
-                    editPro.parentNode.childNodes[2].style.color = '#000';
+
+                if (this.id === "edit-url") {
+                    if (editURL.value === '') {
+                        editURL.parentNode.childNodes[1].innerText = '请输入URL';
+                        editURL.parentNode.childNodes[1].style.color = '#f00';
+                        factor = 0;
+                    }
+                    else {
+                        editTit.parentNode.childNodes[1].innerText = '';
+                        editTit.parentNode.childNodes[1].style.color = '#000';
+                        factor = 1;
+                    }
                 }
+
+                if (this.id === "edit-pro") {
+                    if (parseInt(editPro.value) <= 100 && parseInt(editPro.value) >0 && parseInt(editPro.value) == editPro.value) {//用==：parseInt之后是number类型，而editPro是string类型
+                        editPro.parentNode.childNodes[2].innerText = ' (1%~100%)';
+                        editPro.parentNode.childNodes[2].style.color = '#000';
+                        factor = 1;
+                    }
+                    else {
+                        editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
+                        editPro.parentNode.childNodes[2].style.color = '#f00';
+                        factor = 0;
+                    }
+                }
+
+                if (this.id === "edit-eva") {
+                    if (parseInt(editEva.value) <= 5 && parseInt(editEva.value) >0 && parseInt(editEva.value) == editEva.value) {
+                        editEva.parentNode.childNodes[2].innerText = ' (1~5)';
+                        editEva.parentNode.childNodes[2].style.color = '#000';
+                        factor = 1;
+                    }
+                    else {
+                        editEva.parentNode.childNodes[2].innerText = ' 请输入1～5的整数';
+                        editEva.parentNode.childNodes[2].style.color = '#f00';
+                        factor = 0;
+                    }
+                }
+
             }
         }
 
-
-
-
-
-        var edit_conf = document.getElementById('edit-conf');
-        eventUntil.addHandler(edit_conf, 'click', addConf);
 
     }
 
@@ -323,7 +392,7 @@ window.onload = function () {
     function addConf(e) {
         var e = eventUntil.getEvent(e);
 
-        if (eventUntil.getElement(e).value === "确定") {
+        if (eventUntil.getElement(e).value === "确定" && factor ===1) {
             var newCard = {};
 
             var editPro = document.getElementById('edit-pro').value;
