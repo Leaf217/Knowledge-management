@@ -259,14 +259,54 @@ window.onload = function () {
         add.style.display = 'none';
         edit.innerHTML = str;
 
+        var editTit = document.getElementById('edit-tit');
         var editPro = document.getElementById('edit-pro');
-        console.log(editPro.parentNode.childNodes[2]);
-        editPro.onchange = function (ev) {
-            if (!(parseInt(editPro.value) <= 100 && parseInt(editPro.value) >=0 && parseInt(editPro.value) == editPro.value)) {//用==：parseInt之后是number类型，而editPro是string类型
-                editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
-                editPro.parentNode.childNodes[2].style.color = 'red';
+
+        eventUntil.addHandler(editTit, 'input', OnInput);
+        eventUntil.addHandler(editTit, 'porpertychange', OnPropChanged);
+
+        eventUntil.addHandler(editPro, 'input', OnInput);
+        eventUntil.addHandler(editPro, 'porpertychange', OnPropChanged);
+
+
+        // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
+        function OnInput (event) {
+            if (this.id === "edit-tit") {
+                if (editTit.value === '') {
+                    console.log('1');
+                }
+            }
+
+
+            if (this.id === "edit-pro") {
+                if (parseInt(editPro.value) <= 100 && parseInt(editPro.value) >0 && parseInt(editPro.value) == editPro.value) {//用==：parseInt之后是number类型，而editPro是string类型
+                    editPro.parentNode.childNodes[2].innerText = ' (1%~100%)';
+                    editPro.parentNode.childNodes[2].style.color = '#000';
+                }
+                else {
+                    editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
+                    editPro.parentNode.childNodes[2].style.color = '#f00';
+                }
+            }
+
+
+        }
+        // Internet Explorer
+        function OnPropChanged (event) {
+            if (event.propertyName.toLowerCase () == "value") {
+                if (!(parseInt(editPro.value) <= 100 && parseInt(editPro.value) >0 && parseInt(editPro.value) == editPro.value)) {//用==：parseInt之后是number类型，而editPro是string类型
+                    editPro.parentNode.childNodes[2].innerText = ' 请输入1～100的整数';
+                    editPro.parentNode.childNodes[2].style.color = '#f00';
+                }
+                else {
+                    editPro.parentNode.childNodes[2].innerText = ' (1%~100%)';
+                    editPro.parentNode.childNodes[2].style.color = '#000';
+                }
             }
         }
+
+
+
 
 
         var edit_conf = document.getElementById('edit-conf');

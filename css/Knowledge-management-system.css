@@ -133,15 +133,18 @@ html {
 }
 #edit {
   width: 100%;
-  font-size: 0.26rem;
+  font-size: 0.24rem;
 }
 #edit table {
   margin: 0.1rem auto;
   border-collapse: separate;
-  border-spacing: 0.25rem;
+  border-spacing: 0.26rem;
 }
 #edit table tr td:first-child {
   width: 1.2rem;
+}
+#edit table tr td:last-child {
+  width: 2.4rem;
 }
 #edit input,
 #edit textarea {
