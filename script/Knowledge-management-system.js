@@ -9,6 +9,31 @@ window.onload = function () {
     var edit = document.getElementById('edit');
     var factor;
 
+    //对title的搜索功能
+    var searchBox = document.getElementById('search-box');
+    eventUntil.addHandler(searchBox, 'input', searchTit);
+    function searchTit(event) {
+        var cards = localStorage.getItem("cards");
+        cards = JSON.parse(cards);
+        if (cards.length > 0) {
+            for (var i = 0; i < cards.length;i++) {
+                if (cards[i].title.indexOf(this.value) === -1) {
+                    document.getElementById('card-' + cards[i].index).style.display = 'none';
+                }
+            }
+        }
+        //for...in  --> index;for...of--->object
+        // for (var card of cards) {//card为cards中的每个对象
+            // console.log(card);
+            // if (card.title.indexOf(this.value) === -1) {
+            //     document.getElementById('card-' + card.index).style.display = 'none';
+            // }
+        // }
+        // console.log(this.value);//serch-box的input
+
+    }
+
+
     render();
 
     function render() {
@@ -217,11 +242,11 @@ window.onload = function () {
 
                 document.getElementsByClassName('card')[i].id = 'card-' + i; //为每个card添加id
             }
+
         }
         //用完立马存起来
         cards = JSON.stringify(cards); //将JSON对象转化成字符串
         localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
-
     }
 
 
@@ -269,7 +294,7 @@ window.onload = function () {
 
 
         // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
-        function OnInput (event) {
+        function OnInput(event) {
             if (this.id === "edit-tit") {
                 if (editTit.value === '') {
                     editTit.parentNode.childNodes[1].innerText = '请输入标题';
@@ -323,7 +348,7 @@ window.onload = function () {
             }
         }
         // Internet Explorer
-        function OnPropChanged (event) {
+        function OnPropChanged(event) {
             if (event.propertyName.toLowerCase () == "value") {
                 if (this.id === "edit-tit") {
                     if (editTit.value === '') {

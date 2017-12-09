@@ -7,6 +7,7 @@ localStorage.clear(); //清除
 //JSON对象
 var cards = [
     {
+        "index": 0,
         "title": "关于float的那些事儿",
         "URL": "http://www.w3school.com.cn/cssref/pr_class_float.asp",
         "progress": 100,
@@ -15,6 +16,7 @@ var cards = [
         "tags": ['Tag1', 'Tag2', 'Tag3']
     },
     {
+        "index": 1,
         "title": "position知多少",
         "URL": "http://www.w3school.com.cn/cssref/pr_class_position.asp",
         "progress": 75,
