@@ -12,23 +12,29 @@ window.onload = function () {
     //对title的搜索功能
     var searchBox = document.getElementById('search-box');
     eventUntil.addHandler(searchBox, 'input', searchTit);
+    var cards = localStorage.getItem("cards");
+    cards = JSON.parse(cards);
     function searchTit(event) {
-        var cards = localStorage.getItem("cards");
-        cards = JSON.parse(cards);
-        if (cards.length > 0) {
-            for (var i = 0; i < cards.length;i++) {
-                if (cards[i].title.indexOf(this.value) === -1) {
-                    document.getElementById('card-' + cards[i].index).style.display = 'none';
-                }
+
+        // if (cards.length > 0) {
+        //     for (var i = 0; i < cards.length;i++) {
+        //         if (cards[i].title.indexOf(this.value) === -1) {
+        //             document.getElementById('card-' + cards[i].index).style.display = 'none';
+        //         }
+        //     }
+        // }
+
+
+        //for...in  --> index;for...of--->object
+        for (var card of cards) {//card为cards中的每个对象
+            // console.log(card);
+            if (card.title.indexOf(this.value) === -1) {
+                document.getElementById('card-' + card.index).style.display = 'none';
+            }
+            else {
+                document.getElementById('card-' + card.index).style.display = 'block';
             }
         }
-        //for...in  --> index;for...of--->object
-        // for (var card of cards) {//card为cards中的每个对象
-            // console.log(card);
-            // if (card.title.indexOf(this.value) === -1) {
-            //     document.getElementById('card-' + card.index).style.display = 'none';
-            // }
-        // }
         // console.log(this.value);//serch-box的input
 
     }
