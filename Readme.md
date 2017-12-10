@@ -1,6 +1,6 @@
 ## Knowledge managment system
 实现一个知识管理系统，如下图所示为主页面：<br>
-    > ![Delete-mention](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Home-page.png)
+   > ![Delete-mention](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Home-page.png)
 
 ### 第一阶段
 #### 第一阶段任务如下：<br>
@@ -26,6 +26,7 @@
 - div下包裹span标签，在span中设置font-size属性不奏效，但是在包裹它的div里设置就奏效了，这是为什么？
 - 移动端页面的切换，暂时使用的是display:none和display:block，不知道是否存在其他更好的方法或者是已经很成熟的方法。
 - 在编辑页面，当输入有误和输入正确时，两个提醒进行切换，切换时input框上下浮动问题
+
 
 
 
