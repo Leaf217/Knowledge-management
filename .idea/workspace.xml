@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="961faf04-4c99-40aa-8394-e591260fd5e0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change beforePath="$PROJECT_DIR$/css/Knowledge-management-system.css" afterPath="$PROJECT_DIR$/css/Knowledge-management-system.css" />
+      <change beforePath="$PROJECT_DIR$/css/Knowledge-management-system.less" afterPath="$PROJECT_DIR$/css/Knowledge-management-system.less" />
       <change beforePath="$PROJECT_DIR$/script/Knowledge-management-system.js" afterPath="$PROJECT_DIR$/script/Knowledge-management-system.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,9 +23,22 @@
       <file leaf-file-name="Knowledge-management-system.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state relative-caret-position="386">
+              <caret line="147" column="27" lean-forward="true" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="388">
+                <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -31,15 +46,9 @@
       <file leaf-file-name="data.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-              <folding>
-                <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-                <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-                <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-                <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-                <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -47,7 +56,7 @@
       <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
+            <state relative-caret-position="453">
               <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
@@ -59,31 +68,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="28" />
-              <folding>
-                <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-                <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-                <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,8 +76,8 @@
       <file leaf-file-name="Knowledge-management-system.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="184" column="17" lean-forward="false" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+            <state relative-caret-position="442">
+              <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -117,6 +102,7 @@
       <find>id=&quot;add&quot;</find>
       <find>editCard</find>
       <find>edit_conf</find>
+      <find>text</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,9 +113,9 @@
       <list>
         <option value="$PROJECT_DIR$/Knowledge-management-system.html" />
         <option value="$PROJECT_DIR$/script/event.js" />
-        <option value="$PROJECT_DIR$/css/Knowledge-management-system.less" />
-        <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/script/data.js" />
+        <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/css/Knowledge-management-system.less" />
         <option value="$PROJECT_DIR$/script/Knowledge-management-system.js" />
       </list>
     </option>
@@ -277,11 +263,12 @@
       <workItem from="1512818571974" duration="6796000" />
       <workItem from="1512830018749" duration="265000" />
       <workItem from="1512830302356" duration="1509000" />
+      <workItem from="1512868789026" duration="8342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95839000" />
+    <option name="totallyTimeSpent" value="104181000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="703" extended-state="0" />
@@ -339,13 +326,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -361,31 +342,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-            <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -419,13 +376,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -433,31 +384,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-            <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -491,13 +418,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -513,31 +434,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-            <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -561,13 +458,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -593,31 +484,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="51" column="21" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-          <folding>
-            <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-            <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -641,13 +508,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -673,31 +534,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
-          <folding>
-            <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-            <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -739,13 +576,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -779,13 +610,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -856,11 +681,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/script/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="418">
-            <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <first_editor relative-caret-position="388">
+            <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -868,70 +710,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
+        <state relative-caret-position="453">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <marker date="1512397900000" expanded="true" signature="0:45" ph="/** Created by zhu_yeqing on 2017/7/7. ...*/" />
-            <marker date="1512397900000" expanded="true" signature="78:1863" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="138:391" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="175:243" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="271:327" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="333:385" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="454:710" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="494:565" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="593:649" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="655:704" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="759:975" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="800:884" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1027:1246" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1071:1158" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1286:1329" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1371:1401" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1443:1491" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1542:1676" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1574:1618" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1624:1670" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1725:1861" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1758:1803" ph="{...}" />
-            <marker date="1512397900000" expanded="true" signature="1809:1855" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="184" column="17" lean-forward="false" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+        <state relative-caret-position="442">
+          <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-          <folding>
-            <marker date="1512831142000" expanded="true" signature="0:25" ph="/** 用于存放所有cards的信息 ...*/" />
-            <marker date="1512831142000" expanded="true" signature="50:63" ph="//..." />
-            <marker date="1512831142000" expanded="true" signature="76:740" ph="[...]" />
-            <marker date="1512831142000" expanded="true" signature="82:397" ph="{&quot;title&quot;: &quot;关于float的那些事儿&quot;...}" />
-            <marker date="1512831142000" expanded="true" signature="403:738" ph="{&quot;title&quot;: &quot;position知多少&quot;...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="386">
+          <caret line="147" column="27" lean-forward="true" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
           <folding />
         </state>
       </provider>

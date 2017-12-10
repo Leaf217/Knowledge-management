@@ -52,9 +52,9 @@ html {
 }
 .card .content {
   margin: 0.1rem;
+  font-size: 0.24rem;
 }
 .card .content .name {
-  font-size: 0.24rem;
   white-space: nowrap;
   vertical-align: top;
 }
@@ -63,7 +63,6 @@ html {
   justify-content: flex-start;
   align-items: center;
   padding-left: 2%;
-  font-size: 0.24rem;
 }
 .card .content .progress .value .progress-bar {
   height: 0.08rem;
@@ -76,11 +75,14 @@ html {
 .card .content .evaluation .eva-img {
   padding: 0.015rem;
 }
-.card .content .notes p {
+.card .content .notes .notes-con {
   width: 3rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.card .content .notes a {
+  width: 2rem;
 }
 #add {
   display: flex;

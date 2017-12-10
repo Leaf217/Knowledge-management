@@ -12,22 +12,30 @@ window.onload = function () {
     //对title的搜索功能
     var searchBox = document.getElementById('search-box');
     eventUntil.addHandler(searchBox, 'input', searchTit);
+    eventUntil.addHandler(searchBox, 'propertychange', searchTit);
+
     var cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
+
     function searchTit(event) {
 
+
+        //es5写法
         // if (cards.length > 0) {
         //     for (var i = 0; i < cards.length;i++) {
         //         if (cards[i].title.indexOf(this.value) === -1) {
         //             document.getElementById('card-' + cards[i].index).style.display = 'none';
         //         }
+        //         else {
+        //         document.getElementById('card-' + card.index).style.display = 'block';
+        //         }
         //     }
         // }
 
 
-        //for...in  --> index;for...of--->object
+        //for...in  --> index;for...of(es6)--->object
         for (var card of cards) {//card为cards中的每个对象
-            // console.log(card);
+            // console.log(card.tags);
             if (card.title.indexOf(this.value) === -1) {
                 document.getElementById('card-' + card.index).style.display = 'none';
             }
@@ -35,8 +43,20 @@ window.onload = function () {
                 document.getElementById('card-' + card.index).style.display = 'block';
             }
         }
-        // console.log(this.value);//serch-box的input
+    }
 
+    function OnPropChanged(event) {
+        if (event.propertyName.toLowerCase() == "value") {
+            for (var card of cards) {//card为cards中的每个对象
+                console.log(card.tags);
+                if (card.title.indexOf(this.value) === -1) {
+                    document.getElementById('card-' + card.index).style.display = 'none';
+                }
+                else {
+                    document.getElementById('card-' + card.index).style.display = 'block';
+                }
+            }
+        }
     }
 
 
@@ -106,9 +126,9 @@ window.onload = function () {
                     var notesCon = e.parentNode.childNodes[0]; //学习笔记内容的p标签
                     notesCon.style.width = 'auto';
                     notesCon.style.whiteSpace = 'normal';
-                    notesCon.innerHTML += '<a href="#" class="hide"> hide</a>';
+                    notesCon.innerHTML += ' <a href="#" class="hide">hide</a>';
+                    // notesCon.style.fontSize = '0.24rem';
                     e.innerHTML = '';
-
 
                 }
 
@@ -119,12 +139,16 @@ window.onload = function () {
                     notesCon.style.width = '3rem'; //指向放学习笔记内容的p标签
                     notesCon.style.whiteSpace = 'nowrap';
                     notesCon.removeChild(notesCon.childNodes[1]); //noteCon.childNodes[1]: 学习笔记内容p标签内的hide（a标签）
-                    notesCon.parentNode.childNodes[1].innerHTML = 'view more';
+                    notesCon.parentNode.childNodes[2].innerText = 'view more';
                 }
 
 
                 //点击tags没反应
                 else if (e.className === "tag") {
+                    return;
+                }
+
+                else if (e.className === "tit-url") {
                     return;
                 }
 
@@ -203,7 +227,7 @@ window.onload = function () {
 
                 var str ='';
                 str += '<div class="card">'
-                    +   '<p class="title">' + card.title + '</p>'
+                    +   '<p class="title">' + '<a href="" class="tit-url">' + card.title + '</a>' + '</p>'
                     +   '<table class="content">'
                     +       '<tr class="progress">'
                     +           '<td class="name">学习进度：</td>'
@@ -220,7 +244,7 @@ window.onload = function () {
                     +           '<td class="name">学习笔记：</td>'
                     +           '<td class="value">'
                     +               '<p class="notes-con"></p>'
-                    +               '<a href="#" class="view-more">view more</a>'
+                    +               ' <a href="#" class="view-more">view more</a>'
                     +           '</td>'
                     +       '</tr>'
                     +   '</table>'
@@ -230,6 +254,10 @@ window.onload = function () {
                 cardsHtml.innerHTML += str;
 
                 //从json中读取出来的数据写入上边定义的html结构中
+                var title = document.getElementsByClassName('title');
+                title[i].childNodes[0].href = card.URL;
+
+
                 var progressBar = document.getElementsByClassName('progress-bar');
                 progressBar[i].style.width = card.progress / 100  + 'rem';
 
@@ -285,17 +313,17 @@ window.onload = function () {
         var editEva = document.getElementById('edit-eva');
 
         eventUntil.addHandler(editTit, 'input', OnInput);
-        eventUntil.addHandler(editTit, 'porpertychange', OnPropChanged);
+        eventUntil.addHandler(editTit, 'propertychange', OnPropChanged);
 
         eventUntil.addHandler(editURL, 'input', OnInput);
-        eventUntil.addHandler(editURL, 'porpertychange', OnPropChanged);
+        eventUntil.addHandler(editURL, 'propertychange', OnPropChanged);
 
 
         eventUntil.addHandler(editPro, 'input', OnInput);
-        eventUntil.addHandler(editPro, 'porpertychange', OnPropChanged);
+        eventUntil.addHandler(editPro, 'propertychange', OnPropChanged);
 
         eventUntil.addHandler(editEva, 'input', OnInput);
-        eventUntil.addHandler(editEva, 'porpertychange', OnPropChanged);
+        eventUntil.addHandler(editEva, 'propertychange', OnPropChanged);
 
 
 

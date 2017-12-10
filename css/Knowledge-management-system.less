@@ -58,8 +58,8 @@ html {
   }
   .content {
     margin: 0.1rem;
+    font-size: 0.24rem;
     .name {
-      font-size: 0.24rem;
       //禁止换行
       white-space: nowrap;
       //顶格显示
@@ -70,7 +70,6 @@ html {
       justify-content: flex-start;
       align-items: center;
       padding-left: 2%;
-      font-size: 0.24rem;
 
     }
     .progress {
@@ -94,11 +93,15 @@ html {
     }
     .notes {
       //限定p的宽度，再利用text-overflow属性可以只显示笔记的一部分
-      p {
+      .notes-con {
         width: 3rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        //font-size: 0.24rem;
+      }
+      a {
+        width: 2rem; //如果不设置，view more就会分两行显示
       }
     }
   }
