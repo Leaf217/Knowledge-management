@@ -2,7 +2,7 @@
 实现一个知识管理系统，如下图所示为主页面：<br>
     > ![Delete-mention](https://github.com/Leaf217/Knowledge-management-system/raw/master/Picture/Home-page.png)
 
-###第一阶段
+### 第一阶段
 #### 第一阶段任务如下：<br>
 - 实现如上所示的主页面；
 - 点击view more时，展开显示笔记详情，并显示hide，点击hide时收起笔记详情。
