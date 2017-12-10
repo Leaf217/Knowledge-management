@@ -64,6 +64,7 @@ html {
   justify-content: flex-start;
   align-items: center;
   padding-left: 2%;
+  width: 5rem;
 }
 .card .content .progress .value .progress-bar {
   height: 0.08rem;
@@ -87,7 +88,7 @@ html {
   text-overflow: ellipsis;
 }
 .card .content .notes .view-more {
-  width: 2rem;
+  width: 1.5rem;
 }
 #add {
   display: flex;

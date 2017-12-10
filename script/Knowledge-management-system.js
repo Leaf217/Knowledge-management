@@ -124,6 +124,7 @@ window.onload = function () {
                 //点击view more---笔记展开
                 else if (e.className === "view-more") {
                     var notesCon = e.parentNode.childNodes[0]; //学习笔记内容的p标签
+                    notesCon.style.width = '5rem'; //设置宽一点，看起来正常一些
                     notesCon.style.whiteSpace = 'normal';
                     notesCon.innerHTML += ' <a href="#" class="hide">hide</a>';
                     // notesCon.style.fontSize = '0.24rem';
@@ -135,6 +136,7 @@ window.onload = function () {
                 //点击hide---隐藏笔记
                 else if (e.className === "hide") {
                     var notesCon = e.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
+                    notesCon.style.width = '3.5rem'; //复原
                     notesCon.style.whiteSpace = 'nowrap';
                     notesCon.removeChild(notesCon.childNodes[1]); //noteCon.childNodes[1]: 学习笔记内容p标签内的hide（a标签）
                     notesCon.parentNode.childNodes[2].innerText = 'view more';
@@ -266,6 +268,10 @@ window.onload = function () {
 
                 var notesCon = document.getElementsByClassName('notes-con');
                 notesCon[i].innerHTML = card.notes;
+                //如果文字没有超过一行，那么就不现实view more
+                if (notesCon[i].scrollWidth / 100 <= 3.5) {
+                    document.getElementsByClassName('view-more')[0].innerText = '';
+                }
 
                 var tags = document.getElementsByClassName('tags');
                 for (var k = 0;k < card.tags.length;k++) {
