@@ -124,7 +124,6 @@ window.onload = function () {
                 //点击view more---笔记展开
                 else if (e.className === "view-more") {
                     var notesCon = e.parentNode.childNodes[0]; //学习笔记内容的p标签
-                    notesCon.style.width = 'auto';
                     notesCon.style.whiteSpace = 'normal';
                     notesCon.innerHTML += ' <a href="#" class="hide">hide</a>';
                     // notesCon.style.fontSize = '0.24rem';
@@ -136,7 +135,6 @@ window.onload = function () {
                 //点击hide---隐藏笔记
                 else if (e.className === "hide") {
                     var notesCon = e.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
-                    notesCon.style.width = '3rem'; //指向放学习笔记内容的p标签
                     notesCon.style.whiteSpace = 'nowrap';
                     notesCon.removeChild(notesCon.childNodes[1]); //noteCon.childNodes[1]: 学习笔记内容p标签内的hide（a标签）
                     notesCon.parentNode.childNodes[2].innerText = 'view more';

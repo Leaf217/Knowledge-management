@@ -57,6 +57,7 @@ html {
 .card .content .name {
   white-space: nowrap;
   vertical-align: top;
+  height: 0.35rem;
 }
 .card .content .value {
   display: flex;
@@ -72,16 +73,20 @@ html {
 .card .content .progress .value span {
   padding-left: 0.04rem;
 }
+.card .content .evaluation .stars {
+  height: 0.35rem;
+}
 .card .content .evaluation .eva-img {
-  padding: 0.015rem;
+  margin: auto 0.015rem;
+  height: 80%;
 }
 .card .content .notes .notes-con {
-  width: 3rem;
+  width: 3.5rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card .content .notes a {
+.card .content .notes .view-more {
   width: 2rem;
 }
 #add {

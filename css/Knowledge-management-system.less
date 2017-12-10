@@ -63,7 +63,8 @@ html {
       //禁止换行
       white-space: nowrap;
       //顶格显示
-      vertical-align: top
+      vertical-align: top;
+      height: 0.35rem; //为了stars能上下居中
     }
     .value {
       display: flex;
@@ -87,20 +88,25 @@ html {
       }
     }
     .evaluation {
+      .stars {
+        //为了stars能上下居中，不上下居中的原因是装stars的td与知识评价td的height不同，设置为相同的之后flex的align-items才奏效
+        height: 0.35rem;
+      }
       .eva-img {
-        padding: 0.015rem;
+        margin: auto 0.015rem;
+        height: 80%;//为了stars在任何浏览器中都一样大小：先设置了td的高度，又设置了star图片的高度
       }
     }
     .notes {
       //限定p的宽度，再利用text-overflow属性可以只显示笔记的一部分
       .notes-con {
-        width: 3rem;
+        width: 3.5rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         //font-size: 0.24rem;
       }
-      a {
+      .view-more {
         width: 2rem; //如果不设置，view more就会分两行显示
       }
     }
