@@ -11,15 +11,19 @@ window.onload = function () {
 
     //对title的搜索功能
     var searchBox = document.getElementById('search-box');
-    eventUntil.addHandler(searchBox, 'input', searchTit);
-    eventUntil.addHandler(searchBox, 'propertychange', searchTit);
-
-    var cards = localStorage.getItem("cards");
-    cards = JSON.parse(cards);
-
-    function searchTit(event) {
+    eventUntil.addHandler(searchBox, 'input', searchTitInput);
+    eventUntil.addHandler(searchBox, 'propertychange', searchTitProperty);
 
 
+
+
+    /**
+     * 对title进行搜索
+     * @param event
+     */
+    function searchTitInput(event) {
+        var cards = localStorage.getItem("cards");
+        cards = JSON.parse(cards);
         //es5写法
         // if (cards.length > 0) {
         //     for (var i = 0; i < cards.length;i++) {
@@ -32,10 +36,8 @@ window.onload = function () {
         //     }
         // }
 
-
         //for...in  --> index;for...of(es6)--->object
         for (var card of cards) {//card为cards中的每个对象
-            // console.log(card.tags);
             if (card.title.indexOf(this.value) === -1) {
                 document.getElementById('card-' + card.index).style.display = 'none';
             }
@@ -43,12 +45,14 @@ window.onload = function () {
                 document.getElementById('card-' + card.index).style.display = 'block';
             }
         }
+        cards = JSON.stringify(cards); //将JSON对象转化成字符串
+        localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
     }
-
-    function OnPropChanged(event) {
+    function searchTitProperty(event) {
+        var cards = localStorage.getItem("cards");
+        cards = JSON.parse(cards);
         if (event.propertyName.toLowerCase() == "value") {
             for (var card of cards) {//card为cards中的每个对象
-                console.log(card.tags);
                 if (card.title.indexOf(this.value) === -1) {
                     document.getElementById('card-' + card.index).style.display = 'none';
                 }
@@ -57,6 +61,8 @@ window.onload = function () {
                 }
             }
         }
+        cards = JSON.stringify(cards); //将JSON对象转化成字符串
+        localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
     }
 
 
@@ -70,20 +76,20 @@ window.onload = function () {
 
         //注册事件
 
-        //添加card事件
+        //1.添加card事件
         eventUntil.addHandler(add, 'click', function () {
-            editCard();
+            editCard(0);
             var addConfirm = document.getElementById('edit-conf');
             eventUntil.addHandler(addConfirm, 'click', addConf);
         });
 
-        //删除事件，view more事件，hide事件，编辑事件
+        //2.删除事件，view more事件，hide事件，编辑事件
         var cardClick = document.getElementsByClassName('card');
         for (var i = 0;i < cardClick.length;i++) {
             eventUntil.addHandler(cardClick[i], 'click', function (e) {
                 var e = eventUntil.getElement(e);
 
-                //点击垃圾桶--删除事件
+                //1)点击垃圾桶--删除事件
                 if (e.className === "trash") {
                     var str = '';
                     var cardId = e.parentNode.id;
@@ -121,7 +127,7 @@ window.onload = function () {
                 }
 
 
-                //点击view more---笔记展开
+                //2)点击view more---笔记展开
                 else if (e.className === "view-more") {
                     var notesCon = e.parentNode.childNodes[0]; //学习笔记内容的p标签
                     notesCon.style.width = '5rem'; //设置宽一点，看起来正常一些
@@ -133,7 +139,7 @@ window.onload = function () {
                 }
 
 
-                //点击hide---隐藏笔记
+                //3)点击hide---隐藏笔记
                 else if (e.className === "hide") {
                     var notesCon = e.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
                     notesCon.style.width = '3.5rem'; //复原
@@ -143,19 +149,20 @@ window.onload = function () {
                 }
 
 
-                //点击tags没反应
+                //4)点击tags没反应
                 else if (e.className === "tag") {
                     return;
                 }
 
+                //5)点击title，不进入编辑状态
                 else if (e.className === "tit-url") {
                     return;
                 }
 
 
-                //点击card的其他地方都进入编辑页面---编辑card
+                //6)点击card的其他地方都进入编辑页面---编辑card
                 else {
-                    editCard();
+                    editCard(1);
 
                     var editConfirm = document.getElementById('edit-conf');
                     eventUntil.addHandler(editConfirm, 'click', editConf);
@@ -186,6 +193,7 @@ window.onload = function () {
                             cards[cardId].evaluation = document.getElementById('edit-eva').value;
                             cards[cardId].notes = document.getElementById('edit-not').value;
                             cards[cardId].tags = document.getElementById('edit-tag').value.split(';');//通过分号分割
+                            console.log(cards[cardId].tags);
 
                             //用完存起来
                             cards = JSON.stringify(cards); //将JSON对象转化成字符串
@@ -274,10 +282,12 @@ window.onload = function () {
                 }
 
                 var tags = document.getElementsByClassName('tags');
-                for (var k = 0;k < card.tags.length;k++) {
-                    tags[i].innerHTML += '<span class="tag">' + card.tags[k] + '</span>';
-                }
+                    for (var k = 0;k < card.tags.length;k++) {
+                        if (!(card.tags[k].length == 0 || card.tags[k].replace(/(^s*)|(s*$)/g, "").length ==0 || isNull(card.tags[k]))) {
+                            tags[i].innerHTML += '<span class="tag">' + card.tags[k] + '</span>';
+                        }
 
+                    }
                 document.getElementsByClassName('card')[i].id = 'card-' + i; //为每个card添加id
             }
 
@@ -291,9 +301,17 @@ window.onload = function () {
 
     /**
      * 点击加号事件：显示card的edit页面
+     * @param factorInit factor的初始值，add和edit初识对话框的内容状态不同
      */
-    function editCard() {
+    function editCard(factorInit) {
 
+        // if (operation == editOperation) {
+        //     factor = 1;
+        // }
+        // else if (operation == addOperation) {
+        //     factor = 0;
+        // }
+        factor =factorInit;
         var str = '';
         str += '<form action="">'
             +  '<table>'
@@ -455,7 +473,7 @@ window.onload = function () {
     function addConf(e) {
         var e = eventUntil.getEvent(e);
 
-        if (eventUntil.getElement(e).value === "确定" && factor ===1) {
+        if (eventUntil.getElement(e).value === "确定" && factor === 1) {
             var newCard = {};
 
             var editPro = document.getElementById('edit-pro').value;
@@ -502,6 +520,9 @@ window.onload = function () {
             edit.innerHTML = '';
 
             render();
+        }
+        else if (eventUntil.getElement(e).value === "确定" && factor === 0) {
+            //弹框：请输入正确的内容，先不写
         }
         else if (eventUntil.getElement(e).value === "取消") {
             cardsHtml.style.display = 'block';
@@ -555,6 +576,19 @@ window.onload = function () {
     function preventScroll(e) {
         var e = eventUntil.getEvent(e);
         eventUntil.preventDefault(e);
+    }
+
+
+    /**
+     * 判断输入字符串是否为空或者全部都是空格
+     * @param str
+     * @returns {boolean}
+     */
+    function isNull( str ){
+        if ( str == "" ) return true;
+        var regu = "^[ ]+$";
+        var re = new RegExp(regu);
+        return re.test(str);
     }
 
 }
