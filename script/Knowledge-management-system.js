@@ -151,7 +151,6 @@ function render() {
                         cards[cardId].evaluation = document.getElementById('edit-eva').value;
                         cards[cardId].notes = document.getElementById('edit-not').value;
                         cards[cardId].tags = document.getElementById('edit-tag').value.split(';');//通过分号分割
-                        console.log(cards[cardId].tags);
 
                         //用完存起来
                         cards = JSON.stringify(cards); //将JSON对象转化成字符串
@@ -216,7 +215,7 @@ function addHome() {
                 +           '<td class="name">学习笔记：</td>'
                 +           '<td class="value">'
                 +               '<p class="notes-con"></p>'
-                +               ' <a href="#" class="view-more">view more</a>'
+                +               ' <a href="#" class="view-more"></a>'
                 +           '</td>'
                 +       '</tr>'
                 +   '</table>'
@@ -240,11 +239,21 @@ function addHome() {
 
             var notesCon = document.getElementsByClassName('notes-con');
             notesCon[i].innerHTML = card.notes;
+
+
+
             //如果文字没有超过一行，那么就不现实view more
-            if (notesCon[i].scrollWidth / 100 < 3.5) {
-                //chrome有问题，明天接着调
+            if (notesCon[i].innerHTML.length >= 18) {
+                document.getElementsByClassName('view-more')[i].innerText = 'view more';
+                notesCon[i].style.width = '3.5rem';
+                notesCon[i].style.textOverflow = 'ellipsis';
+                notesCon[i].style.overflow = 'hidden';
+            }
+            else {
                 document.getElementsByClassName('view-more')[0].innerText = '';
-                notesCon[i].style.textOverflow = 'initial';
+                notesCon[i].style.width = 'auto';
+                notesCon[i].style.textOverflow = 'clip';
+                notesCon[i].style.overflow = 'visible';
             }
 
             var tags = document.getElementsByClassName('tags');

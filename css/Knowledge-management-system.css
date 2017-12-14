@@ -84,8 +84,6 @@ html {
 .card .content .notes .notes-con {
   width: 3.5rem;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .card .content .notes .view-more {
   width: 1.5rem;
