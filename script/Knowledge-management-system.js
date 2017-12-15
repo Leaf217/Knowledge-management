@@ -11,15 +11,7 @@ window.onload = function () {
     var searchBox = document.getElementById('search-box');
 
 
-
-
-
-    render(cardsHtml, cover, add, edit, factor, searchBox);
-
-
-
-
-
+    render();
 
 
 
@@ -501,7 +493,16 @@ function addConf(e) {
         render();
     }
     else if (eventUntil.getElement(e).value === "确定" && factor === 0) {
-        //弹框：请输入正确的内容，先不写
+        //弹框：请输入正确的内容
+        str = '<p>提示：请输入正确内容</p>';
+        popup(str, 1, 'inputRem', 'inputRem');
+        eventUntil.addScroll(preventScroll);
+
+        var inputRem = document.getElementById('inputRem');
+        eventUntil.addHandler(inputRem, 'click', function () {
+            cover.style.display = 'none';
+            inputRem.parentNode.removeChild(inputRem); //删除弹出的确认框
+        });
     }
     else if (eventUntil.getElement(e).value === "取消") {
         cardsHtml.style.display = 'block';
@@ -572,7 +573,7 @@ function searchTitProperty(event) {
  * @param className 类名
  * @param id id名
  */
-function popup(str, delDiv_hei, className,id) {
+function popup(str, delDivHei, className,id) {
     cover.style.height = innerHeight + 'px';
     cover.style.width = innerWidth + 'px';
     cover.style.display = 'block';
@@ -583,14 +584,11 @@ function popup(str, delDiv_hei, className,id) {
     addDiv.innerHTML = str;
     addDiv.className = className;
     addDiv.id = id;
-    addDiv.style.top = innerHeight/200 - delDiv_hei/2 + 'rem'; //除200是转化为rem
+    addDiv.style.top = innerHeight/200 - delDivHei/2 + 'rem'; //除200是转化为rem
     addDiv.style.left = 30 + '%' ; //删除框的宽度是40%
 
     document.body.appendChild(addDiv);
 }
-
-
-
 
 
 
@@ -605,17 +603,12 @@ function cancel(elem) {
 
 
 
-
-
 /**
  * 禁止滚轮默认行为
  */
 function preventScroll(e) {
-    var e = eventUntil.getEvent(e);
-    eventUntil.preventDefault(e);
+    eventUntil.preventDefault(eventUntil.getEvent(e));
 }
-
-
 
 
 

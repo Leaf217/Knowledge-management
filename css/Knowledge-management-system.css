@@ -109,7 +109,8 @@ html {
   z-index: 1;
   display: none;
 }
-#delDiv {
+#delDiv,
+#inputRem {
   position: fixed;
   width: 40%;
   height: 0.6rem;
@@ -119,22 +120,27 @@ html {
   font-size: 0.14rem;
   background-color: #E9E8E8;
 }
-#delDiv p {
+#delDiv p,
+#inputRem p {
   height: 0.4rem;
 }
-#delDiv p:nth-child(2) {
+#delDiv p:nth-child(2),
+#inputRem p:nth-child(2) {
   display: flex;
   justify-content: space-around;
 }
-#delDiv input {
+#delDiv input,
+#inputRem input {
   width: 0.70rem;
   height: 0.30rem;
   border: 0.01rem solid #9b9b9b;
 }
-#delDiv input:nth-child(1) {
+#delDiv input:nth-child(1),
+#inputRem input:nth-child(1) {
   background-color: #12BD27;
 }
-#delDiv input:nth-child(2) {
+#delDiv input:nth-child(2),
+#inputRem input:nth-child(2) {
   background-color: #E10A0A;
 }
 #edit {
