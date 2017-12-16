@@ -30,37 +30,37 @@ function render() {
     //1.添加card事件
     eventUntil.addHandler(add, 'click', function () {
         editCard(0);
-        var addConfirm = document.getElementById('edit-conf');
+        let addConfirm = document.getElementById('edit-conf');
         eventUntil.addHandler(addConfirm, 'click', addConf);
     });
 
     //2.删除事件，view more事件，hide事件，编辑事件
-    var cardClick = document.getElementsByClassName('card');
-    for (var i = 0;i < cardClick.length;i++) {
+    let cardClick = document.getElementsByClassName('card');
+    for (let i = 0;i < cardClick.length;i++) {
         eventUntil.addHandler(cardClick[i], 'click', function (e) {
-            var e = eventUntil.getElement(e);
+            let cardClickElem = eventUntil.getElement(e);
 
             //1)点击垃圾桶--删除事件
-            if (e.className === "trash") {
-                var str = '';
-                var cardId = e.parentNode.id;
-                var cardIndex = cardId.split('-')[1]; //点击的删除键对应数据的index值
+            if (cardClickElem.className === "trash") {
+                let str = '';
+                let cardId = cardClickElem.parentNode.id;
+                let cardIndex = cardId.split('-')[1]; //点击的删除键对应数据的index值
                 str += '<p>是否删除此卡片？</p>' +
                     '<p><input type="button" value="确定"><input type="button" value="取消"></p>'; //点击删除后弹出的div里的内容
 
                 popup(str, 1, 'delete-confirm', 'delDiv');
                 eventUntil.addScroll(preventScroll);
 
-                var delDiv = document.getElementById('delDiv');
+                let delDiv = document.getElementById('delDiv');
                 eventUntil.addHandler(delDiv, 'click', delConfirm);
 
                 //删除card确认
                 function delConfirm(e) {
-                    var e = eventUntil.getEvent(e);
-                    if (eventUntil.getElement(e).value === "确定") {
-                        var card_del = document.getElementById(cardId); //获取要删除的card
+                    let delConfirmEve = eventUntil.getEvent(e);
+                    if (eventUntil.getElement(delConfirmEve).value === "确定") {
+                        let card_del = document.getElementById(cardId); //获取要删除的card
                         card_del.parentNode.removeChild(card_del); //删除
-                        var cards = localStorage.getItem("cards");
+                        let cards = localStorage.getItem("cards");
                         cards = JSON.parse(cards);
                         cards.splice(cardIndex, 1); //删除数据
 
@@ -70,7 +70,7 @@ function render() {
                         cover.style.display = 'none';
                         delDiv.parentNode.removeChild(delDiv); //删除弹出的确认框
 
-                    } else if (eventUntil.getElement(e).value === "取消") {
+                    } else if (eventUntil.getElement(delConfirmEve).value === "取消") {
                         cancel(delDiv);
                     }
                     eventUntil.removeScroll(preventScroll);
@@ -79,19 +79,19 @@ function render() {
 
 
             //2)点击view more---笔记展开
-            else if (e.className === "view-more") {
-                var notesCon = e.parentNode.childNodes[0]; //学习笔记内容的p标签
+            else if (cardClickElem.className === "view-more") {
+                let notesCon = cardClickElem.parentNode.childNodes[0]; //学习笔记内容的p标签
                 notesCon.style.width = '5rem'; //设置宽一点，看起来正常一些
                 notesCon.style.whiteSpace = 'normal';
                 notesCon.innerHTML += ' <a href="#" class="hide">hide</a>';
-                e.innerHTML = '';
+                cardClickElem.innerHTML = '';
 
             }
 
 
             //3)点击hide---隐藏笔记
-            else if (e.className === "hide") {
-                var notesCon = e.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
+            else if (cardClickElem.className === "hide") {
+                let notesCon = cardClickElem.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
                 notesCon.style.width = '3.5rem'; //复原
                 notesCon.style.whiteSpace = 'nowrap';
                 notesCon.removeChild(notesCon.childNodes[1]); //noteCon.childNodes[1]: 学习笔记内容p标签内的hide（a标签）
@@ -100,12 +100,12 @@ function render() {
 
 
             //4)点击tags没反应
-            else if (e.className === "tag") {
+            else if (cardClickElem.className === "tag") {
                 return;
             }
 
             //5)点击title，不进入编辑状态
-            else if (e.className === "tit-url") {
+            else if (cardClickElem.className === "tit-url") {
                 return;
             }
 
@@ -114,15 +114,13 @@ function render() {
             else {
                 editCard(1);
 
-                var editConfirm = document.getElementById('edit-conf');
+                let editConfirm = document.getElementById('edit-conf');
                 eventUntil.addHandler(editConfirm, 'click', editConf);
 
                 //从localStorage中读出数据写入edit页面中
-                var cardId = this.id;
+                let cardId = this.id.split('-')[1];
 
-                cardId = cardId.split('-')[1];
-
-                var cards = localStorage.getItem("cards");
+                let cards = localStorage.getItem("cards");
                 cards = JSON.parse(cards);
 
                 document.getElementById('edit-tit').value = cards[cardId].title;
@@ -134,8 +132,8 @@ function render() {
                 document.getElementById('edit-tag').value = document.getElementById('edit-tag').value.replace(/,/g,';'); //将逗号替换成分号
 
                 function editConf(e) {
-                    var e = eventUntil.getEvent(e);
-                    if (eventUntil.getElement(e).value === "确定" && factor === 1) {
+                    let editConfEve = eventUntil.getEvent(e);
+                    if (eventUntil.getElement(editConfEve).value === "确定" && factor === 1) {
                         //取得用户修改/未修改的内容
                         cards[cardId].title = document.getElementById('edit-tit').value;
                         cards[cardId].URL = document.getElementById('edit-url').value;
@@ -154,7 +152,7 @@ function render() {
                         add.style.display = 'flex';
                         edit.innerHTML = '';
                     }
-                    else if (eventUntil.getElement(e).value === "取消") {
+                    else if (eventUntil.getElement(editConfEve).value === "取消") {
                         cardsHtml.style.display = 'block';
                         add.style.display = 'flex';
                         edit.innerHTML = '';
@@ -181,14 +179,14 @@ function render() {
 function addHome() {
     cardsHtml.innerHTML = '';
     //从localStorage中读取数据
-    var cards = localStorage.getItem("cards");
+    let cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
 
     if (cards.length > 0) {
-        for (var i = 0;i < cards.length;i++) {
-            var card = cards[i];
+        for (let i = 0;i < cards.length;i++) {
+            let card = cards[i];
 
-            var str ='';
+            let str ='';
             str += '<div class="card">'
                 +   '<p class="title">' + '<a href="" class="tit-url">' + card.title + '</a>' + '</p>'
                 +   '<table class="content">'
@@ -217,19 +215,19 @@ function addHome() {
             cardsHtml.innerHTML += str;
 
             //从json中读取出来的数据写入上边定义的html结构中
-            var title = document.getElementsByClassName('title');
+            let title = document.getElementsByClassName('title');
             title[i].childNodes[0].href = card.URL;
 
 
-            var progressBar = document.getElementsByClassName('progress-bar');
+            let progressBar = document.getElementsByClassName('progress-bar');
             progressBar[i].style.width = card.progress / 100  + 'rem';
 
-            var stars = document.getElementsByClassName('stars');
-            for (var j = 0;j < card.evaluation;j++) {
+            let stars = document.getElementsByClassName('stars');
+            for (let j = 0;j < card.evaluation;j++) {
                 stars[i].innerHTML += '<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">';
             }
 
-            var notesCon = document.getElementsByClassName('notes-con');
+            let notesCon = document.getElementsByClassName('notes-con');
             notesCon[i].innerHTML = card.notes;
 
 
@@ -248,8 +246,8 @@ function addHome() {
                 notesCon[i].style.overflow = 'visible';
             }
 
-            var tags = document.getElementsByClassName('tags');
-            for (var k = 0;k < card.tags.length;k++) {
+            let tags = document.getElementsByClassName('tags');
+            for (let k = 0;k < card.tags.length;k++) {
                 if (!(card.tags[k].length == 0 || card.tags[k].replace(/(^s*)|(s*$)/g, "").length ==0 || isNull(card.tags[k]))) {
                     tags[i].innerHTML += '<span class="tag">' + card.tags[k] + '</span>';
                 }
@@ -281,7 +279,7 @@ function editCard(factorInit) {
     //     factor = 0;
     // }
     factor =factorInit;
-    var str = '';
+    let str = '';
     str += '<form action="">'
         +  '<table>'
         +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"><span></span></td></tr>'
@@ -298,10 +296,10 @@ function editCard(factorInit) {
     add.style.display = 'none';
     edit.innerHTML = str;
 
-    var editTit = document.getElementById('edit-tit');
-    var editURL = document.getElementById('edit-url');
-    var editPro = document.getElementById('edit-pro');
-    var editEva = document.getElementById('edit-eva');
+    let editTit = document.getElementById('edit-tit');
+    let editURL = document.getElementById('edit-url');
+    let editPro = document.getElementById('edit-pro');
+    let editEva = document.getElementById('edit-eva');
 
     eventUntil.addHandler(editTit, 'input', OnInput);
     eventUntil.addHandler(editTit, 'propertychange', OnPropChanged);
@@ -442,12 +440,12 @@ function editCard(factorInit) {
  * @param e
  */
 function addConf(e) {
-    var e = eventUntil.getEvent(e);
+    let addConfEve = eventUntil.getEvent(e);
 
-    if (eventUntil.getElement(e).value === "确定" && factor === 1) {
-        var newCard = {};
+    if (eventUntil.getElement(addConfEve).value === "确定" && factor === 1) {
+        let newCard = {};
 
-        var editPro = document.getElementById('edit-pro').value;
+        let editPro = document.getElementById('edit-pro').value;
 
 
         if (parseInt(editPro) <= 100 && parseInt(editPro) >=0 && parseInt(editPro) == editPro) {//用==：parseInt之后是number类型，而editPro是string类型
@@ -457,7 +455,7 @@ function addConf(e) {
             alert('请输入1到100的整数');
         }
 
-        var editEva = document.getElementById('edit-eva').value;
+        let editEva = document.getElementById('edit-eva').value;
         if (parseInt(editEva) <= 5 && parseInt(editEva) >=0 && parseInt(editEva) == editEva) {
             newCard.evaluation = editEva;
         }
@@ -477,7 +475,7 @@ function addConf(e) {
 
         cardsHtml.innerHTML = '';
 
-        var cards = localStorage.getItem("cards");
+        let cards = localStorage.getItem("cards");
         cards = JSON.parse(cards);
 
         cards.push(newCard);
@@ -492,19 +490,19 @@ function addConf(e) {
 
         render();
     }
-    else if (eventUntil.getElement(e).value === "确定" && factor === 0) {
+    else if (eventUntil.getElement(addConfEve).value === "确定" && factor === 0) {
         //弹框：请输入正确的内容
-        str = '<p>提示：请输入正确内容</p>';
+        let str = '<p>提示：请输入正确内容</p>';
         popup(str, 1, 'inputRem', 'inputRem');
         eventUntil.addScroll(preventScroll);
 
-        var inputRem = document.getElementById('inputRem');
+        let inputRem = document.getElementById('inputRem');
         eventUntil.addHandler(inputRem, 'click', function () {
             cover.style.display = 'none';
             inputRem.parentNode.removeChild(inputRem); //删除弹出的确认框
         });
     }
-    else if (eventUntil.getElement(e).value === "取消") {
+    else if (eventUntil.getElement(addConfEve).value === "取消") {
         cardsHtml.style.display = 'block';
         add.style.display = 'flex';
         edit.innerHTML = '';
@@ -519,7 +517,7 @@ function addConf(e) {
  * @param event
  */
 function searchTitInput(event) {
-    var cards = localStorage.getItem("cards");
+    let cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
     //es5写法
     // if (cards.length > 0) {
@@ -534,7 +532,7 @@ function searchTitInput(event) {
     // }
 
     //for...in  --> index;for...of(es6)--->object
-    for (var card of cards) {//card为cards中的每个对象
+    for (let card of cards) {//card为cards中的每个对象
         if (card.title.indexOf(this.value) === -1) {
             document.getElementById('card-' + card.index).style.display = 'none';
         }
@@ -546,10 +544,10 @@ function searchTitInput(event) {
     localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
 }
 function searchTitProperty(event) {
-    var cards = localStorage.getItem("cards");
+    let cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
     if (event.propertyName.toLowerCase() == "value") {
-        for (var card of cards) {//card为cards中的每个对象
+        for (let card of cards) {//card为cards中的每个对象
             if (card.title.indexOf(this.value) === -1) {
                 document.getElementById('card-' + card.index).style.display = 'none';
             }
@@ -580,7 +578,7 @@ function popup(str, delDivHei, className,id) {
 
     eventUntil.addScroll(preventScroll);
 
-    var addDiv = document.createElement('div');
+    let addDiv = document.createElement('div');
     addDiv.innerHTML = str;
     addDiv.className = className;
     addDiv.id = id;
@@ -619,8 +617,8 @@ function preventScroll(e) {
  */
 function isNull( str ){
     if ( str == "" ) return true;
-    var regu = "^[ ]+$";
-    var re = new RegExp(regu);
+    let regu = "^[ ]+$";
+    let re = new RegExp(regu);
     return re.test(str);
 }
 
