@@ -3,18 +3,14 @@
  */
 
 window.onload = function () {
-    var cardsHtml = document.getElementById('cards');
-    var cover = document.getElementById('cover');
-    var add = document.getElementById('add');
-    var edit = document.getElementById('edit');
-    var factor; //指示input中填写的信息是否正确
-    var searchBox = document.getElementById('search-box');
-
+    let cardsHtml = document.getElementById('cards');
+    let cover = document.getElementById('cover');
+    let add = document.getElementById('add');
+    let edit = document.getElementById('edit');
+    let factor; //指示input中填写的信息是否正确
+    let searchBox = document.getElementById('search-box');
 
     render();
-
-
-
 
 /**
  * 渲染主页面 + 注册事件们
@@ -538,6 +534,15 @@ function searchTitInput(event) {
         }
         else {
             document.getElementById('card-' + card.index).style.display = 'block';
+        }
+        //tag
+        for (let i = 0; i < card.tags.length;i++) {
+            if (card.tags[i].indexOf(this.value) === -1) {
+                document.getElementById('card-' + card.index).style.display = 'none';
+            }
+            else {
+                document.getElementById('card-' + card.index).style.display = 'block';
+            }
         }
     }
     cards = JSON.stringify(cards); //将JSON对象转化成字符串
