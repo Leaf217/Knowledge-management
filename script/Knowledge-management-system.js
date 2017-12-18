@@ -567,8 +567,6 @@ function searchTitProperty(event) {
 
 
 
-
-
 /**
  * 确认框的弹出
  * @param str 确认框的内容
