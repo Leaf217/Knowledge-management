@@ -528,20 +528,14 @@ function searchTitInput(event) {
 
     //for...in  --> index;for...of(es6)--->object
     for (let card of cards) {//card为cards中的每个对象
-        if (card.title.indexOf(this.value) === -1) {
+        let str = '';
+        str += card.title;
+        str += ' ' + card.tags.join(' ');
+        if (str.indexOf(this.value) === -1) {
             document.getElementById('card-' + card.index).style.display = 'none';
         }
         else {
             document.getElementById('card-' + card.index).style.display = 'block';
-        }
-        //tag
-        for (let i = 0; i < card.tags.length;i++) {
-            if (card.tags[i].indexOf(this.value) === -1) {
-                document.getElementById('card-' + card.index).style.display = 'none';
-            }
-            else {
-                document.getElementById('card-' + card.index).style.display = 'block';
-            }
         }
     }
     cards = JSON.stringify(cards); //将JSON对象转化成字符串
