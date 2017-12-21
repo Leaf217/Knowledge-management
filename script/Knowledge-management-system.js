@@ -508,7 +508,7 @@ function addConf(e) {
 
 
 /**
- * 对title进行搜索
+ * 对title & tags进行搜索
  * @param event
  */
 function searchTitInput(event) {
@@ -531,7 +531,8 @@ function searchTitInput(event) {
         let str = '';
         str += card.title;
         str += ' ' + card.tags.join(' ');
-        if (str.indexOf(this.value) === -1) {
+        str = str.toLowerCase(); //搜索不区分大小写
+        if (str.indexOf(this.value.toLowerCase()) === -1) {
             document.getElementById('card-' + card.index).style.display = 'none';
         }
         else {
