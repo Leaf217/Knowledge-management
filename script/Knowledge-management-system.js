@@ -252,6 +252,12 @@ function addHome() {
         }
 
     }
+    else {
+        let str = '<div id="no-card">'
+                + '<p>暂时还没有标签哦!赶快去<a href="#">添加</a>吧</p>'
+                + '</div>';
+        cardsHtml.innerHTML += str;
+    }
     //用完立马存起来
     cards = JSON.stringify(cards); //将JSON对象转化成字符串
     localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
