@@ -168,7 +168,6 @@ function render() {
 }
 
 
-
 /** 生成主页面
  *
  */
@@ -270,8 +269,6 @@ function addHome() {
     cards = JSON.stringify(cards); //将JSON对象转化成字符串
     localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
 }
-
-
 
 
 
