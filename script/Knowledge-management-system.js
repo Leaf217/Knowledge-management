@@ -616,7 +616,6 @@ function preventScroll(e) {
 }
 
 
-
 /**
  * 判断输入字符串是否为空或者全部都是空格
  * @param str
