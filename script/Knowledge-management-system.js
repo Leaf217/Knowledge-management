@@ -555,7 +555,7 @@ function searchTitInput(event) {
 function searchTitProperty(event) {
     let cards = localStorage.getItem("cards");
     cards = JSON.parse(cards);
-    if (event.propertyName.toLowerCase() == "value") {
+    if (event.propertyName.toLowerCase() === "value") {
         for (let card of cards) {//card为cards中的每个对象
             if (card.title.indexOf(this.value) === -1) {
                 document.getElementById('card-' + card.index).style.display = 'none';
