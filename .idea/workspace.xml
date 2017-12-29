@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="961faf04-4c99-40aa-8394-e591260fd5e0" name="Default" comment="" />
+    <list default="true" id="961faf04-4c99-40aa-8394-e591260fd5e0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Knowledge-management-system.html" afterPath="$PROJECT_DIR$/Knowledge-management-system.html" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -14,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Knowledge-management-system.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Knowledge-management-system.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="587" column="22" lean-forward="true" selection-start-line="587" selection-start-column="22" selection-end-line="587" selection-end-column="22" />
+            <state relative-caret-position="15">
+              <caret line="587" column="22" lean-forward="false" selection-start-line="587" selection-start-column="22" selection-end-line="587" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -38,8 +41,8 @@
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="600">
-                <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <first_editor relative-caret-position="392">
+                <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -60,18 +63,18 @@
       <file leaf-file-name="Knowledge-management-system.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="1590">
               <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state relative-caret-position="315">
+              <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -120,11 +123,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/script/event.js" />
-        <option value="$PROJECT_DIR$/Knowledge-management-system.html" />
         <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/script/data.js" />
         <option value="$PROJECT_DIR$/css/Knowledge-management-system.less" />
         <option value="$PROJECT_DIR$/script/Knowledge-management-system.js" />
+        <option value="$PROJECT_DIR$/Knowledge-management-system.html" />
       </list>
     </option>
   </component>
@@ -209,6 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,7 +240,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,12 +317,13 @@
       <workItem from="1514197775708" duration="55000" />
       <workItem from="1514300260682" duration="54000" />
       <workItem from="1514375239497" duration="1652000" />
-      <workItem from="1514461562999" duration="723000" />
+      <workItem from="1514461562999" duration="770000" />
+      <workItem from="1514558302306" duration="221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150537000" />
+    <option name="totallyTimeSpent" value="150805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="698" extended-state="0" />
@@ -719,14 +723,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -735,14 +731,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="600">
-            <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -754,18 +747,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="392">
+            <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="587" column="22" lean-forward="true" selection-start-line="587" selection-start-column="22" selection-end-line="587" selection-end-column="22" />
+        <state relative-caret-position="15">
+          <caret line="587" column="22" lean-forward="false" selection-start-line="587" selection-start-column="22" selection-end-line="587" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
           <folding />
         </state>
       </provider>
