@@ -626,6 +626,4 @@ function isNull( str ){
     return re.test(str);
 }
 
-
-
 }
