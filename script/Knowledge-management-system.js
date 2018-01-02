@@ -542,7 +542,7 @@ function searchTitInput(event) {
         str += card.title;
         str += ' ' + card.tags.join(' ');
         str = str.toLowerCase(); //搜索不区分大小写
-        if (str.indexOf(this.value.toLowerCase()) === -1) {
+        if (!~str.indexOf(this.value.toLowerCase())) {
             document.getElementById('card-' + card.index).style.display = 'none';
         }
         else {
@@ -557,7 +557,7 @@ function searchTitProperty(event) {
     cards = JSON.parse(cards);
     if (event.propertyName.toLowerCase() === "value") {
         for (let card of cards) {//card为cards中的每个对象
-            if (card.title.indexOf(this.value) === -1) {
+            if (!~str.indexOf(this.value.toLowerCase())) {
                 document.getElementById('card-' + card.index).style.display = 'none';
             }
             else {
