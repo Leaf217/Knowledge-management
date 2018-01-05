@@ -84,8 +84,7 @@ function render() {
                 cardClickElem.innerHTML = '';
 
             }
-
-
+            
             //3)点击hide---隐藏笔记
             else if (cardClickElem.className === "hide") {
                 let notesCon = cardClickElem.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
