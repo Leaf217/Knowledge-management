@@ -116,8 +116,7 @@ function render() {
                 //从localStorage中读出数据写入edit页面中
                 let cardId = this.id.split('-')[1];
 
-                let cards = localStorage.getItem("cards");
-                cards = JSON.parse(cards);
+                let cards = JSON.parse(localStorage.getItem("cards"));
 
                 document.getElementById('edit-tit').value = cards[cardId].title;
                 document.getElementById('edit-url').value = cards[cardId].URL;
@@ -139,8 +138,7 @@ function render() {
                         cards[cardId].tags = document.getElementById('edit-tag').value.split(';');//通过分号分割
 
                         //用完存起来
-                        cards = JSON.stringify(cards); //将JSON对象转化成字符串
-                        localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
+                        localStorage.setItem("cards", JSON.stringify(cards)); //将JSON对象转化成字符串，用localStorage保存转化好的字符串
 
                         render();
 
@@ -173,15 +171,13 @@ function render() {
 function addHome() {
     cardsHtml.innerHTML = '';
     //从localStorage中读取数据
-    let cards = localStorage.getItem("cards");
-    cards = JSON.parse(cards);
+    let cards = JSON.parse(localStorage.getItem("cards"));
 
     if (cards.length > 0) {
         for (let i = 0;i < cards.length;i++) {
             let card = cards[i];
 
-            let str ='';
-            str += '<div class="card">'
+            let str = '<div class="card">'
                 +   '<p class="title">' + '<a href="" class="tit-url">' + card.title + '</a>' + '</p>'
                 +   '<table class="content">'
                 +       '<tr class="progress">'
@@ -252,10 +248,10 @@ function addHome() {
 
     }
     else {
-        let str = '<div id="no-card">'
+        cardsHtml.innerHTML += '<div id="no-card">'
                 + '<p>暂时还没有标签哦!赶快去<a href="javascript:void(0);" id="jump-to-add">添加</a>吧</p>'
                 + '</div>';
-        cardsHtml.innerHTML += str;
+
         let jumpToAdd = document.getElementById('jump-to-add');
         eventUntil.addHandler(jumpToAdd, 'click', function () {
             editCard(0);
@@ -284,8 +280,7 @@ function editCard(factorInit) {
     //     factor = 0;
     // }
     factor =factorInit;
-    let str = '';
-    str += '<form action="">'
+    let str = '<form action="">'
         +  '<table>'
         +  '<tr><td>Title: </td> <td><input type="text" id="edit-tit"><span></span></td></tr>'
         +  '<tr><td>URL: </td><td><input type="text" id="edit-url"><span></span></td></tr>'
@@ -485,8 +480,7 @@ function addConf(e) {
         cards.push(newCard);
 
         //用完立马存起来
-        cards = JSON.stringify(cards); //将JSON对象转化成字符串
-        localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
+        localStorage.setItem("cards", JSON.stringify(cards)); //将JSON对象转化成字符串，用localStorage保存转化好的字符串
 
         cardsHtml.style.display = 'block';
         add.style.display = 'flex';
@@ -521,8 +515,7 @@ function addConf(e) {
  * @param event
  */
 function searchTitInput(event) {
-    let cards = localStorage.getItem("cards");
-    cards = JSON.parse(cards);
+    let cards = JSON.parse(localStorage.getItem("cards"));
     //es5写法
     // if (cards.length > 0) {
     //     for (var i = 0; i < cards.length;i++) {
@@ -548,12 +541,12 @@ function searchTitInput(event) {
             document.getElementById('card-' + card.index).style.display = 'block';
         }
     }
-    cards = JSON.stringify(cards); //将JSON对象转化成字符串
-    localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
+
+    localStorage.setItem("cards", JSON.stringify(cards));
 }
 function searchTitProperty(event) {
-    let cards = localStorage.getItem("cards");
-    cards = JSON.parse(cards);
+    let cards = JSON.parse(localStorage.getItem("cards"));
+
     if (event.propertyName.toLowerCase() === "value") {
         for (let card of cards) {//card为cards中的每个对象
             let str = '';
@@ -568,8 +561,8 @@ function searchTitProperty(event) {
             }
         }
     }
-    cards = JSON.stringify(cards); //将JSON对象转化成字符串
-    localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
+
+    localStorage.setItem("cards", JSON.stringify(cards)); 
 }
 
 
