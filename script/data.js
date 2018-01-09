@@ -3,9 +3,9 @@
  */
 
 
-localStorage.clear(); //清除
+// localStorage.clear(); //清除
 //JSON对象
-var cards = [
+let cards = [
     {
         "index": 0,
         "title": "关于float的那些事儿",
@@ -26,5 +26,4 @@ var cards = [
     }
 ]
 
-cards = JSON.stringify(cards); //将JSON对象转化成字符串
-localStorage.setItem("cards", cards); //用localStorage保存转化好的字符串
+localStorage.setItem("cards", JSON.stringify(cards)); //将JSON对象转化成字符串,用localStorage保存转化好的字符串

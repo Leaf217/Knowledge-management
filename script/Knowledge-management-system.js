@@ -177,7 +177,7 @@ function addHome() {
         for (let i = 0;i < cards.length;i++) {
             let card = cards[i];
 
-            let str = '<div class="card">'
+            cardsHtml.innerHTML += '<div class="card">'
                 +   '<p class="title">' + '<a href="" class="tit-url">' + card.title + '</a>' + '</p>'
                 +   '<table class="content">'
                 +       '<tr class="progress">'
@@ -202,7 +202,7 @@ function addHome() {
                 +   '<div class="tags"></div>'
                 +   '<img src="Picture/Material/Trash.png" alt="trash" class="trash">'
                 + '</div>';
-            cardsHtml.innerHTML += str;
+
 
             //从json中读取出来的数据写入上边定义的html结构中
             let title = document.getElementsByClassName('title');
