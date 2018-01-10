@@ -47,6 +47,9 @@ function home(cardHtml) {
         starsSet(cardData[index].evaluation, stars, index);
 
     }
+    for (let value of cardData.entries()) {
+        console.log(value[0]);
+    }
 
 
 
@@ -63,7 +66,7 @@ function starsSet(num, stars, index) {
 
 
 
-//不应该用for in，index会产生意想不到的效果，不够稳妥，思考如何用for of实现
+//不应该用for of+迭代器
 
 
 

@@ -67,7 +67,8 @@ function render() {
                         delDiv.parentNode.removeChild(delDiv); //删除弹出的确认框
                         render();
 
-                    } else if (eventUntil.getElement(delConfirmEve).value === "取消") {
+                    }
+                    if (eventUntil.getElement(delConfirmEve).value === "取消") {
                         cancel(delDiv);
                     }
                     eventUntil.removeScroll(preventScroll);
@@ -76,32 +77,33 @@ function render() {
 
 
             //2)点击view more---笔记展开
-            else if (cardClickElem.className === "view-more") {
+            if (cardClickElem.className === "view-more") {
                 let notesCon = cardClickElem.parentNode.childNodes[0]; //学习笔记内容的p标签
                 notesCon.style.width = '5rem'; //设置宽一点，看起来正常一些
                 notesCon.style.whiteSpace = 'normal';
                 notesCon.innerHTML += ' <a href="#" class="hide">hide</a>';
                 cardClickElem.innerHTML = '';
-
+                return;//为何要加return才行，否则展开后就进入了编辑界面
             }
             
             //3)点击hide---隐藏笔记
-            else if (cardClickElem.className === "hide") {
+            if (cardClickElem.className === "hide") {
                 let notesCon = cardClickElem.parentNode; //学习笔记内容的p标签，与view more中的获取语句不同，但是获取的都是p
                 notesCon.style.width = '3.5rem'; //复原
                 notesCon.style.whiteSpace = 'nowrap';
                 notesCon.removeChild(notesCon.childNodes[1]); //noteCon.childNodes[1]: 学习笔记内容p标签内的hide（a标签）
                 notesCon.parentNode.childNodes[2].innerText = 'view more';
+                return;
             }
 
 
             //4)点击tags没反应
-            else if (cardClickElem.className === "tag") {
+            if (cardClickElem.className === "tag") {
                 return;
             }
 
             //5)点击title，不进入编辑状态
-            else if (cardClickElem.className === "tit-url") {
+            if (cardClickElem.className === "tit-url") {
                 return;
             }
 
