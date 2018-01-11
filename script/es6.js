@@ -9,17 +9,17 @@ function home(cardHtml) {
     cardHtml.innerHTML = ''; //initialization
     let cardData = JSON.parse(localStorage.getItem("cards"));
 
-    for (let index in cardData) {
+    for (let [index, value] of cardData.entries()) {
         cardHtml.innerHTML += '<div class="card">'
             +   '<p class="title">'
-            +     '<a href="' + cardData[index].URL + '" class="tit-url">' + cardData[index].title + '</a>'
+            +     '<a href="' + value.URL + '" class="tit-url">' + value.title + '</a>'
             +   '</p>'
             +   '<table class="content">'
             +       '<tr class="progress">'
             +           '<td class="name">学习进度：</td>'
             +           '<td class="value">'
             +               '<div class="progress-bar"></div>'
-            +               '<span>' + cardData[index].progress + '%</span>'
+            +               '<span>' + value.progress + '%</span>'
             +           '</td>'
             +       '</tr>'
             +       '<tr class="evaluation">'
@@ -29,7 +29,7 @@ function home(cardHtml) {
             +       '<tr class="notes">'
             +           '<td class="name">学习笔记：</td>'
             +           '<td class="value">'
-            +               '<p class="notes-con"></p>'
+            +               '<p class="notes-con">' + value.notes + '</p>'
             +               ' <a href="#" class="view-more"></a>'
             +           '</td>'
             +       '</tr>'
@@ -40,18 +40,13 @@ function home(cardHtml) {
 
         //设置进度条
         let progressBar = document.getElementsByClassName('progress-bar');
-        progressBar[index].style.width = cardData[index].progress / 100 + 'rem';
+        progressBar[index].style.width = value.progress / 100 + 'rem';
 
         //设置评价星星
         let stars = document.getElementsByClassName('stars');
-        starsSet(cardData[index].evaluation, stars, index);
+        starsSet(value.evaluation, stars, index);
 
     }
-    for (let value of cardData.entries()) {
-        console.log(value[0]);
-    }
-
-
 
 }
 
