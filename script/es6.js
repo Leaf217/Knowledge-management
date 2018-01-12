@@ -46,6 +46,15 @@ function home(cardHtml) {
         let stars = document.getElementsByClassName('stars');
         starsSet(value.evaluation, stars, index);
 
+        //设置tag标签
+        let tags = document.getElementsByClassName('tags');
+        for (let tag of value.tags) {
+            if (!(tag.length === 0 || tag.replace(/(^s*)|(s*$)/g, "").length === 0 || isNull(tag))) {
+                tags[index].innerHTML += '<span class="tag">' + tag + '</span>';
+            }
+        }
+
+
     }
 
 }
@@ -56,6 +65,19 @@ function starsSet(num, stars, index) {
     for (let i = 0;i < num;i++) {
         stars[index].innerHTML += '<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">';
     }
+}
+
+
+/**
+ * 判断输入字符串是否为空或者全部都是空格
+ * @param str
+ * @returns {boolean}
+ */
+function isNull( str ){
+    if ( str == "" ) return true;
+    let regu = "^[ ]+$";
+    let re = new RegExp(regu);
+    return re.test(str);
 }
 
 
