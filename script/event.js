@@ -4,7 +4,7 @@
 
 
 //跨浏览器事件处理程序
-var eventUntil = {
+let eventUntil = {
     //添加事件
     addHandler: function (elem, type, handler) {
         if (elem.addEventListener) {
@@ -67,4 +67,4 @@ var eventUntil = {
             e.cancelBubble = true;
         }
     }
-}
+};
