@@ -1,12 +1,14 @@
 window.onload = function () {
     let cardHtml = document.getElementById('cards');
-    homeRender(cardHtml);
+    renderHome(cardHtml);
 
 };
 
 
+
+//--------Homepage----------//
 //Render homepage
-let homeRender = function (cardHtml) {
+let renderHome = function (cardHtml) {
     cardHtml.innerHTML = ''; //initialization
     let cardData = JSON.parse(localStorage.getItem("cards"));
 
@@ -17,13 +19,13 @@ let homeRender = function (cardHtml) {
         cardHtml.appendChild(card);
 
         //title
-        titleAdd(cardHtml, index, value);
+        addTitle(cardHtml, index, value);
 
         //content: progress + evaluation + notes
-        contentAdd(index,value);
+        addContent(index,value);
 
         //tags
-        tagAdd(index, value);
+        addTags(index, value);
 
         //deleteButton
         deleteButton(index);
@@ -32,41 +34,35 @@ let homeRender = function (cardHtml) {
 };
 
 //Constructor
-function Element(parent, element, className, str, index) {
-    let par = document.getElementsByClassName(parent);
-    let ele = document.createElement(element);
-    ele.className = className;
-    ele.innerHTML = str;
-    par[index].appendChild(ele);
-    this.parent = par;
-}
+// function Element(parent, element, className, str, index) {
+//     let par = document.getElementsByClassName(parent);
+//     let ele = document.createElement(element);
+//     ele.className = className;
+//     ele.innerHTML = str;
+//     par[index].appendChild(ele);
+//     this.parent = par;
+// }
 // Element.prototype.createEle = function () {
 //     return this.parent;
 // };
 
 
 //Add and set title of cards
-let titleAdd = function (cardHtml, index, value) {
-    let str = '<a href="' + value.URL + '">' + value.title + '</a>';
-    new Element('card', 'p', 'title', str, index);
-
-    // let card = document.getElementsByClassName('card');
-    // let title = document.createElement('p');
-    // title.className = 'title';
-    // title.innerHTML = '<a href="' + value.URL + '">' + value.title + '</a>';
-    // card[index].appendChild(title);
+let addTitle = function (cardHtml, index, value) {
+    let card = document.getElementsByClassName('card');
+    let title = document.createElement('p');
+    title.className = 'title';
+    title.innerHTML = '<a href="' + value.URL + '">' + value.title + '</a>';
+    card[index].appendChild(title);
 };
 
 
 //Add content: progress + evaluation + notes
-let contentAdd = function (index, value) {
-    let str = '';
-    new Element('card', 'table', 'content', str, index);
-
-    // let content = document.createElement('table');
-    // content.className = 'content';
-    // let card = document.getElementsByClassName('card');
-    // card[index].appendChild(content);
+let addContent = function (index, value) {
+    let content = document.createElement('table');
+    content.className = 'content';
+    let card = document.getElementsByClassName('card');
+    card[index].appendChild(content);
 
     progressAdd(index, value);
 
@@ -80,16 +76,12 @@ let contentAdd = function (index, value) {
 
 //Add progress
 let progressAdd = function (index, value) {
-    let str = '';
-    new Element('content', 'tr', 'progress', str, index);
+    let content = document.getElementsByClassName('content');
+    let progress = document.createElement('tr');
+    progress.className = 'progress';
+    content[index].appendChild(progress);
 
-
-    // let content = document.getElementsByClassName('content');
-    // let progress = document.createElement('tr');
-    // progress.className = 'progress';
-    // content[index].appendChild(progress);
-
-    let progress = document.getElementsByClassName('progress');
+    progress = document.getElementsByClassName('progress');
     progress[index].innerHTML = '<td class="name">学习进度：</td>'
                               + '<td class="value">'
                                   + '<div class="progress-bar"></div>'
@@ -134,7 +126,7 @@ let notesAdd = function (index, value) {
 
 
 //Add tags
-let tagAdd = function (index, value) {
+let addTags = function (index, value) {
     let card = document.getElementsByClassName('card');
     let tags = document.createElement('div');
     tags.className = 'tags';
@@ -170,12 +162,26 @@ let isNull = function ( str ){
 
 
 //for of ：对data.js的循环还可以进一步处理？
-//创建元素时有重复代码，如何解决这个问题。觉得用构造函数不对劲儿，再思考思考，可能直接用jQ就行吧
+//创建元素时有重复代码，如何解决这个问题。可能直接用jQ就行吧，先放着这个问题
 
 
 
 
+//--------edit card------//
+let editCard = function (cardHtml) {
+    cardHtml.innerHTML = '';
+};
 
+
+//show or hide element
+let ele = {
+    show: function (ele, show) {
+        ele.style.display = show;
+    },
+    hide: function (ele, hide) {
+        ele.style.display = hide;
+    }
+};
 
 
 
