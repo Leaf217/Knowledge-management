@@ -144,6 +144,7 @@ html {
   background-color: #E10A0A;
 }
 #edit {
+  display: none;
   width: 100%;
   font-size: 0.24rem;
 }

@@ -1,6 +1,10 @@
 window.onload = function () {
     let cardHtml = document.getElementById('cards');
+    let edit = document.getElementById('edit');
+    let addButton = document.getElementById('add');
     renderHome(cardHtml);
+    // eventUntil.addHandler(addButton, 'click', editCard(cardHtml, edit));
+
 
 };
 
@@ -70,7 +74,7 @@ let addContent = function (index, value) {
 
     notesAdd(index, value);
 
-    //if there is any content, add hereafter
+    //if there is any content, add hereafter......
 };
 
 
@@ -168,20 +172,21 @@ let isNull = function ( str ){
 
 
 //--------edit card------//
-let editCard = function (cardHtml) {
+let editCard = function (cardHtml, edit) {
     cardHtml.innerHTML = '';
+    edit.style.display = 'block';
+    // ele.displayStyle(edit, 'block');
+
 };
 
 
 //show or hide element
-let ele = {
-    show: function (ele, show) {
-        ele.style.display = show;
-    },
-    hide: function (ele, hide) {
-        ele.style.display = hide;
-    }
-};
+//show：'block','display',......
+// let ele = {
+//     displayStyle: function (ele, style) {
+//         ele.style.display = style;
+//     }
+// };
 
 
 

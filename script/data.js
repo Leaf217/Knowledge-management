@@ -7,7 +7,7 @@
 //JSON对象
 let cards = [
     {
-        "index": 0,
+        // "index": 0,
         "title": "关于float的那些事儿",
         "URL": "http://www.w3school.com.cn/cssref/pr_class_float.asp",
         "progress": 100,
@@ -16,7 +16,7 @@ let cards = [
         "tags": ['Tag1', 'Tag2', 'Tag3']
     },
     {
-        "index": 1,
+        // "index": 1,
         "title": "position知多少",
         "URL": "http://www.w3school.com.cn/cssref/pr_class_position.asp",
         "progress": 75,
@@ -24,6 +24,6 @@ let cards = [
         "notes": "position知多少position知多少position知多少position知多少position知多少position知多少position知多少position知多少position知多少",
         "tags": ['Tag1', 'Tag2']
     }
-]
+];
 
 localStorage.setItem("cards", JSON.stringify(cards)); //将JSON对象转化成字符串,用localStorage保存转化好的字符串
