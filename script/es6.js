@@ -71,6 +71,7 @@ let addContent = function (index, value) {
 };
 
 
+
 //Add progress
 let progressAdd = function (index, value) {
     let content = document.getElementsByClassName('content');
@@ -91,6 +92,7 @@ let progressAdd = function (index, value) {
 };
 
 
+
 //Add evaluation
 let evaluationAdd = function (index, value) {
     let content = document.getElementsByClassName('content');
@@ -108,6 +110,7 @@ let evaluationAdd = function (index, value) {
 
     return evaluation;
 };
+
 
 
 //Add notes
@@ -155,9 +158,6 @@ let deleteButton = function (index) {
 
 
 
-
-
-
 //for of ：对data.js的循环还可以进一步处理？
 //创建元素时有重复代码，如何解决这个问题。可能直接用jQ就行吧，先放着这个问题
 
@@ -165,6 +165,7 @@ let deleteButton = function (index) {
 
 
 //--------edit card------//
+//Edit page
 let editCard = function (cardHtml, addButton, edit) {
     return function () {
         cardHtml.innerHTML = '';
@@ -175,7 +176,7 @@ let editCard = function (cardHtml, addButton, edit) {
 };
 
 
-//Monitor input
+//Monitor input status
 let onInput = function (e) {
     let event = eventUntil.getEvent(e);
     let ele = eventUntil.getElement(event);
@@ -187,35 +188,6 @@ let onInput = function (e) {
 let checkInput = function (ele) {
     let editItem = document.getElementById(ele.id);
     let promptInfo = ele.parentNode.parentNode.childNodes[0].innerText.split(':')[0];//find the corresponding Chinese name
-    // switch (ele.id) {
-    //     case 'edit-tit':
-    //         promptInfo = 'Title';
-    //         break;
-    //
-    //     case 'edit-url':
-    //         promptInfo = 'URL';
-    //         break;
-    //
-    //     case 'edit-pro':
-    //         promptInfo = '学习进度';
-    //         break;
-    //
-    //     case 'edit-eva':
-    //         promptInfo = '知识评价';
-    //         break;
-    //
-    //     case 'edit-not':
-    //         promptInfo = '学习笔记';
-    //         break;
-    //
-    //     case 'edit-tag':
-    //         promptInfo = '标签';
-    //         break;
-    //
-    //     default:
-    //         promptInfo = '';
-    // }
-
     if (isNull(editItem.value)) {
         ele.parentNode.childNodes[1].innerText = '请输入' + promptInfo;
         ele.parentNode.childNodes[1].style.color = '#f00';
@@ -223,6 +195,9 @@ let checkInput = function (ele) {
     else {
         ele.parentNode.childNodes[1].innerText = '';
         ele.parentNode.childNodes[1].style.color = '#000';
+    }
+    if (ele.id === 'edit-pro' || ele.id === 'edit-eva') {
+        //继续看设计模式再改吧
     }
 };
 
