@@ -2,8 +2,10 @@ window.onload = function () {
     let cardHtml = document.getElementById('cards');
     let edit = document.getElementById('edit');
     let addButton = document.getElementById('add');
+
     renderHome(cardHtml);
-    // eventUntil.addHandler(addButton, 'click', editCard(cardHtml, edit));
+
+    eventUntil.addHandler(addButton, 'click', editCard(cardHtml, addButton, edit));
 
 
 };
@@ -34,21 +36,8 @@ let renderHome = function (cardHtml) {
         //deleteButton
         deleteButton(index);
     }
-
 };
 
-//Constructor
-// function Element(parent, element, className, str, index) {
-//     let par = document.getElementsByClassName(parent);
-//     let ele = document.createElement(element);
-//     ele.className = className;
-//     ele.innerHTML = str;
-//     par[index].appendChild(ele);
-//     this.parent = par;
-// }
-// Element.prototype.createEle = function () {
-//     return this.parent;
-// };
 
 
 //Add and set title of cards
@@ -58,6 +47,8 @@ let addTitle = function (cardHtml, index, value) {
     title.className = 'title';
     title.innerHTML = '<a href="' + value.URL + '">' + value.title + '</a>';
     card[index].appendChild(title);
+
+    return title;
 };
 
 
@@ -75,6 +66,8 @@ let addContent = function (index, value) {
     notesAdd(index, value);
 
     //if there is any content, add hereafter......
+
+    return content;
 };
 
 
@@ -93,6 +86,8 @@ let progressAdd = function (index, value) {
                               +  '</td>';
     let progressBar = document.getElementsByClassName('progress-bar');
     progressBar[index].style.width = value.progress / 100 + 'rem';
+
+    return progress;
 };
 
 
@@ -110,6 +105,8 @@ let evaluationAdd = function (index, value) {
         let stars = document.getElementsByClassName('stars');
         stars[index].innerHTML += '<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">';
     }
+
+    return evaluation;
 };
 
 
@@ -124,8 +121,10 @@ let notesAdd = function (index, value) {
     notes[index].innerHTML = '<td class="name">学习笔记：</td>'
                            + '<td class="value">'
                            +     '<p class="notes-con">' + value.notes + '</p>'
-                           +     '<a href="#" class="view-more"></a>'
+                           +     '<a href="#" class="view-more">view more</a>'
                            + '</td>';
+
+    return notes;
 };
 
 
@@ -155,13 +154,7 @@ let deleteButton = function (index) {
 };
 
 
-//Determine the string is empty or space
-let isNull = function ( str ){
-    if ( str == "" ) return true;
-    let regular = "^[ ]+$";
-    let re = new RegExp(regular);
-    return re.test(str);
-};
+
 
 
 
@@ -172,39 +165,73 @@ let isNull = function ( str ){
 
 
 //--------edit card------//
-let editCard = function (cardHtml, edit) {
-    cardHtml.innerHTML = '';
-    edit.style.display = 'block';
-    // ele.displayStyle(edit, 'block');
-
+let editCard = function (cardHtml, addButton, edit) {
+    return function () {
+        cardHtml.innerHTML = '';
+        addButton.style.display = 'none';
+        edit.style.display = 'block';
+        eventUntil.addHandler(edit, 'input', onInput);
+    };
 };
 
 
-//show or hide element
-//show：'block','display',......
-// let ele = {
-//     displayStyle: function (ele, style) {
-//         ele.style.display = style;
-//     }
-// };
+//Monitor input
+let onInput = function (e) {
+    let event = eventUntil.getEvent(e);
+    let ele = eventUntil.getElement(event);
+    checkInput(ele);
+};
+
+
+//Check input
+let checkInput = function (ele) {
+    let editItem = document.getElementById(ele.id);
+    let promptInfo = ele.parentNode.parentNode.childNodes[0].innerText.split(':')[0];//find the corresponding Chinese name
+    // switch (ele.id) {
+    //     case 'edit-tit':
+    //         promptInfo = 'Title';
+    //         break;
+    //
+    //     case 'edit-url':
+    //         promptInfo = 'URL';
+    //         break;
+    //
+    //     case 'edit-pro':
+    //         promptInfo = '学习进度';
+    //         break;
+    //
+    //     case 'edit-eva':
+    //         promptInfo = '知识评价';
+    //         break;
+    //
+    //     case 'edit-not':
+    //         promptInfo = '学习笔记';
+    //         break;
+    //
+    //     case 'edit-tag':
+    //         promptInfo = '标签';
+    //         break;
+    //
+    //     default:
+    //         promptInfo = '';
+    // }
+
+    if (isNull(editItem.value)) {
+        ele.parentNode.childNodes[1].innerText = '请输入' + promptInfo;
+        ele.parentNode.childNodes[1].style.color = '#f00';
+    }
+    else {
+        ele.parentNode.childNodes[1].innerText = '';
+        ele.parentNode.childNodes[1].style.color = '#000';
+    }
+};
 
 
 
-// es6 example
-// let a = createPerson('1','2');
-// console.log(a);
-// function createPerson(name,age) {
-//     return {
-//         name,
-//         age
-//     }
-// }
-//
-//
-// let person = {
-//     name : "me",
-//     sayName() {
-//         console.log(this.name);
-//     }
-// }
-// person.sayName();
+//Determine the string is empty or space
+let isNull = function ( str ){
+    if ( str == "" ) return true;
+    let regular = "^[ ]+$";
+    let re = new RegExp(regular);
+    return re.test(str);
+};
