@@ -198,7 +198,7 @@ let createEditPage = function () {
                    + '</table>'
                    + '<p id="edit-conf"><input type="button" value="确定"><input type="button" value="取消"></p>'
                    + '</form>';
-    form.style.display = 'none';
+    // form.style.display = 'none';
     edit.appendChild(form);
     return form;
 };
@@ -216,7 +216,7 @@ let onInput = function (e) {
 //Check input
 let checkInput = function (ele) {
     let editItem = document.getElementById(ele.id);
-    let promptInfo = ele.parentNode.parentNode.childNodes[0].innerText.split(':')[0];//find the corresponding Chinese name
+    let promptInfo = ele.parentNode.parentNode.childNodes[0].innerText.split(':').shift();//find the corresponding Chinese name
     if (isNull(editItem.value)) {
         ele.parentNode.childNodes[1].innerText = '请输入' + promptInfo;
         ele.parentNode.childNodes[1].style.color = '#f00';
@@ -252,7 +252,7 @@ let bindAddButton = getSingle(function () {
         let editPage = getSingle(createEditPage)();
         addButton.style.display = 'none';
         cardHtml.style.display = 'none';
-        editPage.style.display = 'block';
+        // editPage.style.display = 'block';
         edit.style.display = 'block';
     });
     return true;
@@ -270,5 +270,12 @@ let render = function () {
 
 
 
-//单例模式 (Singleton mode)
-//对于一个对象频繁创建、添加和删除是要避免的：用一个变量来标志是否已经建立过这个对象，如果是，则在下次直接返回这个已经创建好的对象。将创建实例和管理单例两个职责分离开来。
+// 单例模式 (Singleton mode)
+// 对于一个对象频繁创建、添加和删除是要避免的：用一个变量来标志是否已经建立过这个对象，如果是，则在下次直接返回这个已经创建好的对象。将创建实例和管理单例两个职责分离开来。
+// 添加edit page，绑定事件都可以使用单例模式。
+
+// 策略模式 (Strategy mode)
+// 定义一系列的算法，把它们分别封装，使它们可以相互替换。
+// 表单数据是否合法的校验可以使用这个模式。
+
+
