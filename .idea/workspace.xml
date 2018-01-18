@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="961faf04-4c99-40aa-8394-e591260fd5e0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Knowledge-management-system.html" afterPath="$PROJECT_DIR$/Knowledge-management-system.html" />
       <change beforePath="$PROJECT_DIR$/script/es6.js" afterPath="$PROJECT_DIR$/script/es6.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="Knowledge-management-system.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="353" column="13" lean-forward="true" selection-start-line="349" selection-start-column="12" selection-end-line="353" selection-end-column="13" />
+            <state relative-caret-position="-420">
+              <caret line="353" column="13" lean-forward="false" selection-start-line="349" selection-start-column="12" selection-end-line="353" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -30,31 +31,31 @@
       <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="42" column="89" lean-forward="true" selection-start-line="42" selection-start-column="89" selection-end-line="42" selection-end-column="89" />
+            <state relative-caret-position="432">
+              <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="es6.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="es6.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/es6.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="161" column="40" lean-forward="true" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
+            <state relative-caret-position="415">
+              <caret line="256" column="7" lean-forward="true" selection-start-line="256" selection-start-column="7" selection-end-line="256" selection-end-column="7" />
               <folding>
-                <marker date="1516174803000" expanded="true" signature="593:953" ph="..." />
+                <marker date="1516247162000" expanded="true" signature="551:901" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="170">
-                <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+              <first_editor relative-caret-position="210">
+                <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -65,8 +66,8 @@
       <file leaf-file-name="Knowledge-management-system.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="210" column="1" lean-forward="true" selection-start-line="210" selection-start-column="1" selection-end-line="210" selection-end-column="1" />
+            <state relative-caret-position="3150">
+              <caret line="210" column="1" lean-forward="false" selection-start-line="210" selection-start-column="1" selection-end-line="210" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -75,8 +76,8 @@
       <file leaf-file-name="event.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/event.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+            <state relative-caret-position="390">
+              <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -103,8 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>id=&quot;edit</find>
-      <find>id=&quot;add&quot;</find>
       <find>edit_conf</find>
       <find>text</find>
       <find>value</find>
@@ -133,6 +132,8 @@
       <find>tagAdd</find>
       <find>deleteButton</find>
       <find>displ</find>
+      <find>editPage</find>
+      <find>isNull</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -260,6 +260,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,11 +360,13 @@
       <workItem from="1516023344938" duration="1865000" />
       <workItem from="1516106721299" duration="3779000" />
       <workItem from="1516149005637" duration="16299000" />
+      <workItem from="1516191432070" duration="2020000" />
+      <workItem from="1516236186319" duration="8817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224329000" />
+    <option name="totallyTimeSpent" value="235166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="698" extended-state="0" />
@@ -373,12 +376,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -750,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script/event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+        <state relative-caret-position="390">
+          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -766,46 +769,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="210" column="1" lean-forward="true" selection-start-line="210" selection-start-column="1" selection-end-line="210" selection-end-column="1" />
+        <state relative-caret-position="3150">
+          <caret line="210" column="1" lean-forward="false" selection-start-line="210" selection-start-column="1" selection-end-line="210" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="42" column="89" lean-forward="true" selection-start-line="42" selection-start-column="89" selection-end-line="42" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="353" column="13" lean-forward="true" selection-start-line="349" selection-start-column="12" selection-end-line="353" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/es6.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="161" column="40" lean-forward="true" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
-          <folding>
-            <marker date="1516174803000" expanded="true" signature="593:953" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="170">
-            <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <first_editor relative-caret-position="210">
+            <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="353" column="13" lean-forward="false" selection-start-line="349" selection-start-column="12" selection-end-line="353" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/es6.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="256" column="7" lean-forward="true" selection-start-line="256" selection-start-column="7" selection-end-line="256" selection-end-column="7" />
+          <folding>
+            <marker date="1516247162000" expanded="true" signature="551:901" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
