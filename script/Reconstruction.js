@@ -251,7 +251,6 @@ let bindAddButton = getSingle(function () {
         addButton.style.display = 'none';
         cardHtml.style.display = 'none';
         edit.style.display = 'block';
-        // console.log(document.getElementById('register-form'));
         callValid();
     });
     return true;
@@ -295,7 +294,7 @@ Validator.prototype.add = function (dom, rules) {
                 let strategy = strategyAry.shift(); //the strategy name
                 strategyAry.unshift(dom.value); //add input value at the start of strategyAry
                 strategyAry.push(errorMsg);
-                return strategies[strategy].apply(dom, strategyAry);
+                return [strategies[strategy].apply(dom, strategyAry),dom];
             });
         })(rule)
     }
@@ -304,7 +303,7 @@ Validator.prototype.add = function (dom, rules) {
 Validator.prototype.start = function () {
     for (let i = 0, validatorFunc;validatorFunc = this.cache[i++];) {
         let errorMsg = validatorFunc();
-        if (errorMsg) {
+        if (errorMsg[0]) {
             return errorMsg;
         }
     }
@@ -330,15 +329,15 @@ let callValid = function () {
             strategy: 'isNull',
             errorMsg: '学习进度不能为空'
         }, {
-            strategy: 'numberRange',
+            strategy: 'numberRange:1:100',
             errorMsg: '请输入1～100的正整数'
         }]);
         validator.add(registerForm.evaluation, [{
             strategy: 'isNull',
             errorMsg: '知识评价不能为空'
         }, {
-            strategy: 'numberRange',
-            errorMsg: '请输入1～5的正整数'
+            strategy: 'numberRange:1:5',
+            errorMsg: '请输入1～5的正整数',
         }]);
         validator.add(registerForm.notes, [{
             strategy: 'isNull',
@@ -351,16 +350,27 @@ let callValid = function () {
         return validator.start();
     };
 
-    eventUntil.addHandler(registerForm, 'submit',function () {
+    // eventUntil.addHandler(registerForm, 'submit', function () {
+    //     let errorMsg = validFunc();
+    //
+    //     if (errorMsg) {
+    //         alert(errorMsg);
+    //         return false;
+    //     }
+    // });
+    registerForm.onsubmit = function () {
         let errorMsg = validFunc();
 
-        if (errorMsg) {
-            // alert(errorMsg);
+        if (errorMsg[0]) {
+            // alert(errorMsg[0]);
+            // alert(errorMsg[1]);
+            errorMsg[1].parentNode.childNodes[1].innerText = errorMsg[0];
+            errorMsg[1].parentNode.childNodes[1].style.color = '#f00';
             return false;
         }
-    });
+    }
 };
-
+//问题：textarea 的判断无法完成；其他的提醒都可以，接下来要添加输入正确后提醒消失。
 
 
 
