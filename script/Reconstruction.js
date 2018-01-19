@@ -183,22 +183,20 @@ let getSingle = function (fn) {
 };
 
 
-//Create edit page(only )
+//Create edit page
 let createEditPage = function () {
     let edit = document.getElementById('edit');
     let form = document.createElement('form');
-    form.innerHTML = '<form action="">'
-                   + '<table>'
-                   + '<tr><td>Title:</td> <td><input type="text" id="edit-tit"><span></span></td></tr>'
-                   + '<tr><td>URL:</td><td><input type="text" id="edit-url"><span></span></td></tr>'
-                   + '<tr><td>学习进度:</td><td><input type="text" id="edit-pro" placeholder="1%~100%"><span></span></td></tr>'
-                   + '<tr><td>知识评价:</td><td><input type="text" id="edit-eva" placeholder="1~5颗星"><span></span></td></tr>'
-                   + '<tr><td class="notes">学习笔记:</td><td><textarea name="" id="edit-not" cols="30" rows="10" placeholder="最少输入20个字符"></textarea><span></span></td></tr>'
-                   + '<tr><td>Tags:</td><td><input type="text" id="edit-tag" placeholder="用分号分隔"><span></span></td></tr>'
+    form.id = 'register-form';
+    form.innerHTML = '<table>'
+                   + '<tr><td>Title:</td> <td><input type="text" id="edit-tit" name="title"><span></span></td></tr>'
+                   + '<tr><td>URL:</td><td><input type="text" id="edit-url" name="url"><span></span></td></tr>'
+                   + '<tr><td>学习进度:</td><td><input type="text" id="edit-pro" placeholder="1%~100%" name="progress"><span></span></td></tr>'
+                   + '<tr><td>知识评价:</td><td><input type="text" id="edit-eva" placeholder="1~5颗星" name="evaluation"><span></span></td></tr>'
+                   + '<tr><td class="notes">学习笔记:</td><td><textarea name="" id="edit-not" cols="30" rows="10" placeholder="最少输入20个字符" name="notes"></textarea><span></span></td></tr>'
+                   + '<tr><td>Tags:</td><td><input type="text" id="edit-tag" placeholder="用分号分隔" name="tags"><span></span></td></tr>'
                    + '</table>'
-                   + '<p id="edit-conf"><input type="button" value="确定"><input type="button" value="取消"></p>'
-                   + '</form>';
-    // form.style.display = 'none';
+                   + '<p id="edit-conf"><input type="submit" value="确定"><input type="button" value="取消"></p>';
     edit.appendChild(form);
     return form;
 };
@@ -206,37 +204,37 @@ let createEditPage = function () {
 
 
 //Monitor input status
-let onInput = function (e) {
-    let event = eventUntil.getEvent(e);
-    let ele = eventUntil.getElement(event);
-    checkInput(ele);
-};
+// let onInput = function (e) {
+//     let event = eventUntil.getEvent(e);
+//     let ele = eventUntil.getElement(event);
+//     checkInput(ele);
+// };
 
 
 //Check input
-let checkInput = function (ele) {
-    let editItem = document.getElementById(ele.id);
-    let promptInfo = ele.parentNode.parentNode.childNodes[0].innerText.split(':').shift();//find the corresponding Chinese name
-    if (isNull(editItem.value)) {
-        ele.parentNode.childNodes[1].innerText = '请输入' + promptInfo;
-        ele.parentNode.childNodes[1].style.color = '#f00';
-    }
-    else {
-        ele.parentNode.childNodes[1].innerText = '';
-        ele.parentNode.childNodes[1].style.color = '#000';
-    }
-    if (ele.id === 'edit-pro' || ele.id === 'edit-eva') {
-        //继续看设计模式再改吧
-    }
-};
+// let checkInput = function (ele) {
+//     let editItem = document.getElementById(ele.id);
+//     let promptInfo = ele.parentNode.parentNode.childNodes[0].innerText.split(':').shift();//find the corresponding Chinese name
+//     if (isNull(editItem.value)) {
+//         ele.parentNode.childNodes[1].innerText = '请输入' + promptInfo;
+//         ele.parentNode.childNodes[1].style.color = '#f00';
+//     }
+//     else {
+//         ele.parentNode.childNodes[1].innerText = '';
+//         ele.parentNode.childNodes[1].style.color = '#000';
+//     }
+//     if (ele.id === 'edit-pro' || ele.id === 'edit-eva') {
+//         //......
+//     }
+// };
 
 //Bind monitor (Singleton mode)
-let bindMonitor = getSingle(
-    function () {
-        let edit = document.getElementById('edit');
-        eventUntil.addHandler(edit, 'input', onInput);
-    }
-);
+// let bindMonitor = getSingle(
+//     function () {
+//         let edit = document.getElementById('edit');
+//         eventUntil.addHandler(edit, 'input', onInput);
+//     }
+// );
 
 
 //Bind add button (Singleton mode)
@@ -249,14 +247,121 @@ let bindAddButton = getSingle(function () {
         //Create edit page (Singleton mode)
         // let createSingleEditPage = getSingle(createEditPage);
         // let editPage = createSingleEditPage();
-        let editPage = getSingle(createEditPage)();
+        getSingle(createEditPage)();
         addButton.style.display = 'none';
         cardHtml.style.display = 'none';
-        // editPage.style.display = 'block';
         edit.style.display = 'block';
+        // console.log(document.getElementById('register-form'));
+        callValid();
     });
     return true;
 });
+
+
+//-------Form validation--------//
+//Form validation strategies
+let strategies = {
+    isNull: function (value, errorMsg) {
+        if (isNull(value)) {
+            return errorMsg;
+        }
+    },
+    numberRange: function (value, min, max, errorMsg) {
+        if (!(parseInt(value) <= max && parseInt(value) >=min && parseInt(value) == value)) {
+            return errorMsg;
+        }
+    },
+    minLength: function (value, length, errorMsg) {
+        if (value.length < length) {
+            return errorMsg;
+        }
+    }
+};
+
+
+//Validator class
+let Validator = function () {
+    this.cache = [];
+};
+
+Validator.prototype.add = function (dom, rules) {
+    let self = this;
+    for (let i = 0, rule;rule = rules[i++];) {
+        (function (rule) {
+            let strategyAry = rule.strategy.split(':');
+            let errorMsg = rule.errorMsg;
+
+            self.cache.push(function () {
+                let strategy = strategyAry.shift(); //the strategy name
+                strategyAry.unshift(dom.value); //add input value at the start of strategyAry
+                strategyAry.push(errorMsg);
+                return strategies[strategy].apply(dom, strategyAry);
+            });
+        })(rule)
+    }
+};
+
+Validator.prototype.start = function () {
+    for (let i = 0, validatorFunc;validatorFunc = this.cache[i++];) {
+        let errorMsg = validatorFunc();
+        if (errorMsg) {
+            return errorMsg;
+        }
+    }
+};
+
+
+//Call validator
+let callValid = function () {
+    let registerForm = document.getElementById('register-form');
+
+    let validFunc = function () {
+        let validator = new Validator();
+
+        validator.add(registerForm.title, [{
+            strategy: 'isNull',
+            errorMsg: 'Title不能为空'
+        }]);
+        validator.add(registerForm.url, [{
+            strategy: 'isNull',
+            errorMsg: 'URL不能为空'
+        }]);
+        validator.add(registerForm.progress, [{
+            strategy: 'isNull',
+            errorMsg: '学习进度不能为空'
+        }, {
+            strategy: 'numberRange',
+            errorMsg: '请输入1～100的正整数'
+        }]);
+        validator.add(registerForm.evaluation, [{
+            strategy: 'isNull',
+            errorMsg: '知识评价不能为空'
+        }, {
+            strategy: 'numberRange',
+            errorMsg: '请输入1～5的正整数'
+        }]);
+        validator.add(registerForm.notes, [{
+            strategy: 'isNull',
+            errorMsg: '学习笔记不能为空'
+        }, {
+            strategy: 'minLength:20',
+            errorMsg: '至少输入20个字符'
+        }]);
+
+        return validator.start();
+    };
+
+    eventUntil.addHandler(registerForm, 'submit',function () {
+        let errorMsg = validFunc();
+
+        if (errorMsg) {
+            // alert(errorMsg);
+            return false;
+        }
+    });
+};
+
+
 
 
 
@@ -265,7 +370,7 @@ let bindAddButton = getSingle(function () {
 let render = function () {
     renderHome();
     bindAddButton();
-    bindMonitor();
+    // bindMonitor();
 };
 
 
