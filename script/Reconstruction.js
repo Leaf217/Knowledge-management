@@ -193,7 +193,7 @@ let createEditPage = function () {
                    + '<tr><td>URL:</td><td><input type="text" id="edit-url" name="url"><span></span></td></tr>'
                    + '<tr><td>学习进度:</td><td><input type="text" id="edit-pro" placeholder="1%~100%" name="progress"><span></span></td></tr>'
                    + '<tr><td>知识评价:</td><td><input type="text" id="edit-eva" placeholder="1~5颗星" name="evaluation"><span></span></td></tr>'
-                   + '<tr><td class="notes">学习笔记:</td><td><textarea name="" id="edit-not" cols="30" rows="10" placeholder="最少输入20个字符" name="notes"></textarea><span></span></td></tr>'
+                   + '<tr><td class="notes">学习笔记:</td><td><textarea name="notes" id="edit-not" cols="30" rows="10" placeholder="最少输入20个字符" name="notes"></textarea><span></span></td></tr>'
                    + '<tr><td>Tags:</td><td><input type="text" id="edit-tag" placeholder="用分号分隔" name="tags"><span></span></td></tr>'
                    + '</table>'
                    + '<p id="edit-conf"><input type="submit" value="确定"><input type="button" value="取消"></p>';
@@ -244,9 +244,6 @@ let bindAddButton = getSingle(function () {
     let addButton = document.getElementById('add');
 
     eventUntil.addHandler(addButton, 'click', function() {
-        //Create edit page (Singleton mode)
-        // let createSingleEditPage = getSingle(createEditPage);
-        // let editPage = createSingleEditPage();
         getSingle(createEditPage)();
         addButton.style.display = 'none';
         cardHtml.style.display = 'none';
@@ -346,18 +343,15 @@ let callValid = function () {
             strategy: 'minLength:20',
             errorMsg: '至少输入20个字符'
         }]);
+        validator.add(registerForm.tags, [{
+            strategy: 'isNull',
+            errorMsg: 'tags不能为空'
+        }]);
 
         return validator.start();
     };
 
-    // eventUntil.addHandler(registerForm, 'submit', function () {
-    //     let errorMsg = validFunc();
-    //
-    //     if (errorMsg) {
-    //         alert(errorMsg);
-    //         return false;
-    //     }
-    // });
+
     registerForm.onsubmit = function () {
         let errorMsg = validFunc();
 
@@ -370,7 +364,7 @@ let callValid = function () {
         }
     }
 };
-//问题：textarea 的判断无法完成；其他的提醒都可以，接下来要添加输入正确后提醒消失。
+//问题： 其他的提醒都可以，接下来要添加输入正确后提醒消失。
 
 
 
