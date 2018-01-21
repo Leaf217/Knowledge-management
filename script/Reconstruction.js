@@ -1,9 +1,10 @@
 window.onload = function () {
-    // let cardHtml = document.getElementById('cards');
-    // let edit = document.getElementById('edit');
-    // let addButton = document.getElementById('add');
-
     render();
+    let promise = Promise.resolve(42);
+
+    promise.then(function (value) {
+        console.log(value);
+    })
 
 };
 
