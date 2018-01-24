@@ -1,10 +1,6 @@
 window.onload = function () {
     render();
-    let promise = Promise.resolve(42);
 
-    promise.then(function (value) {
-        console.log(value);
-    })
 
 };
 
@@ -47,7 +43,7 @@ let addTitle = function (index, value) {
     let card = document.getElementsByClassName('card');
     let title = document.createElement('p');
     title.className = 'title';
-    title.innerHTML = '<a href="' + value.URL + '">' + value.title + '</a>';
+    title.innerHTML = `<a href="' + value.URL + '"> ${value.title} </a>`;
     card[index].appendChild(title);
 
     return title;
@@ -82,11 +78,14 @@ let progressAdd = function (index, value) {
     content[index].appendChild(progress);
 
     progress = document.getElementsByClassName('progress');
-    progress[index].innerHTML = '<td class="name">学习进度：</td>'
-                              + '<td class="value">'
-                                  + '<div class="progress-bar"></div>'
-                                  + '<span>' + value.progress + '%</span>'
-                              +  '</td>';
+
+    progress[index].innerHTML = `
+        <td class="name">学习进度：</td>
+        <td class="value">
+            <div class="progress-bar"></div>
+            <span>${value.progress}%</span>
+        </td>`.trim();
+
     let progressBar = document.getElementsByClassName('progress-bar');
     progressBar[index].style.width = value.progress / 100 + 'rem';
 
@@ -103,11 +102,12 @@ let evaluationAdd = function (index, value) {
     content[index].appendChild(evaluation);
 
     evaluation = document.getElementsByClassName('evaluation');
-    evaluation[index].innerHTML = '<td class="name">知识评价：</td>'
-                                + '<td class="value stars"></td>';
+    evaluation[index].innerHTML =`
+        <td class="name">知识评价：</td>
+         <td class="value stars"></td>`.trim();
     for (let i = 0;i < value.evaluation;i++) {
         let stars = document.getElementsByClassName('stars');
-        stars[index].innerHTML += '<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">';
+        stars[index].innerHTML += `<img src="Picture/Material/Star-1.png" alt="star" class="eva-img">`;
     }
 
     return evaluation;
@@ -123,18 +123,19 @@ let notesAdd = function (index, value) {
     content[index].appendChild(notes);
 
     notes = document.getElementsByClassName('notes');
-    notes[index].innerHTML = '<td class="name">学习笔记：</td>'
-                           + '<td class="value">'
-                           +     '<p class="notes-con">' + value.notes + '</p>'
-                           +     '<a href="#" class="view-more">view more</a>'
-                           + '</td>';
+    notes[index].innerHTML = `
+        <td class="name">学习笔记：</td>
+        <td class="value">
+            <p class="notes-con">${value.notes}</p>
+            <a href="#" class="view-more">view more</a>
+        </td>`;
 
     return notes;
 };
 
 
 //Determine the string is empty or space
-let isNull = function ( str ){
+var isNull = function ( str ){
     if ( str == "" ) return true;
     let regular = "^[ ]+$";
     let re = new RegExp(regular);
@@ -189,19 +190,21 @@ let createEditPage = function () {
     let edit = document.getElementById('edit');
     let form = document.createElement('form');
     form.id = 'register-form';
-    form.innerHTML = '<table>'
-                   + '<tr><td>Title:</td> <td><input type="text" id="edit-tit" name="title"><span></span></td></tr>'
-                   + '<tr><td>URL:</td><td><input type="text" id="edit-url" name="url"><span></span></td></tr>'
-                   + '<tr><td>学习进度:</td><td><input type="text" id="edit-pro" placeholder="1%~100%" name="progress"><span></span></td></tr>'
-                   + '<tr><td>知识评价:</td><td><input type="text" id="edit-eva" placeholder="1~5颗星" name="evaluation"><span></span></td></tr>'
-                   + '<tr><td class="notes">学习笔记:</td><td><textarea name="notes" id="edit-not" cols="30" rows="10" placeholder="最少输入20个字符" name="notes"></textarea><span></span></td></tr>'
-                   + '<tr><td>Tags:</td><td><input type="text" id="edit-tag" placeholder="用分号分隔" name="tags"><span></span></td></tr>'
-                   + '</table>'
-                   + '<p id="edit-conf"><input type="submit" value="确定"><input type="button" value="取消"></p>';
+    form.innerHTML = `
+        <table>
+            <tr><td>Title:</td> <td><input type="text" id="edit-tit" name="title"><span></span></td></tr>
+            <tr><td>URL:</td><td><input type="text" id="edit-url" name="url"><span></span></td></tr>
+            <tr><td>学习进度:</td><td><input type="text" id="edit-pro" placeholder="1%~100%" name="progress"><span></span></td></tr>
+            <tr><td>知识评价:</td><td><input type="text" id="edit-eva" placeholder="1~5颗星" name="evaluation"><span></span></td></tr>
+            <tr><td class="notes">学习笔记:</td><td><textarea name="notes" id="edit-not" cols="30" rows="10" placeholder="最少输入20个字符" name="notes"></textarea><span></span></td></tr>
+            <tr><td>Tags:</td><td><input type="text" id="edit-tag" placeholder="用分号分隔" name="tags"><span></span></td></tr>
+        </table>
+        <p id="edit-conf"><input type="submit" value="确定"><input type="button" value="取消"></p>`.trim();
     edit.appendChild(form);
     return form;
 };
-//问题：innerHTML是不是不该这么写？
+//innerHTML是不是不该这么写？是啊，ES6之前是用字符串以及加号来写innerHTML，在ES6中应该用``包裹，用占位符${}来包裹变量、js表达式等等。
+//trim()是为了移除第一行`后的空行。
 
 
 //Monitor input status
