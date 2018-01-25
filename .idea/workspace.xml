@@ -30,29 +30,28 @@
       <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+            <state relative-caret-position="390">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reconstruction.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Reconstruction.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/Reconstruction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="369" column="2" lean-forward="false" selection-start-line="369" selection-start-column="2" selection-end-line="369" selection-end-column="2" />
+            <state relative-caret-position="375">
+              <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
               <folding>
-                <marker date="1516779525000" expanded="true" signature="1038:10981" ph="..." />
-                <marker date="1516779525000" expanded="true" signature="1970:2073" ph="..." />
-                <marker date="1516779525000" expanded="true" signature="3323:3445" ph="..." />
-                <marker date="1516779525000" expanded="true" signature="4963:5745" ph="..." />
+                <marker date="1516869437000" expanded="true" signature="2000:2103" ph="..." />
+                <marker date="1516869437000" expanded="true" signature="3353:3475" ph="..." />
+                <marker date="1516869437000" expanded="true" signature="4993:5775" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home-page.png" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home-page.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Picture/Home-page.png">
           <provider selected="true" editor-type-id="images">
             <state />
@@ -82,16 +81,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/event.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="data.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/data.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -113,7 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>editCard</find>
       <find>console.log</find>
       <find>split</find>
       <find>editca</find>
@@ -143,6 +131,7 @@
       <find>registerForm</find>
       <find>createEditPage</find>
       <find>validataFunc</find>
+      <find>event</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,9 +163,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1416" />
-    <option name="y" value="65" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="24" />
     <option name="width" value="1280" />
     <option name="height" value="698" />
   </component>
@@ -244,30 +232,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Knowledge-management-system" type="b2602c69:ProjectViewProjectNode" />
               <item name="Knowledge-management-system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Knowledge-management-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Knowledge-management-system" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Knowledge-management-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Knowledge-management-system" type="462c0819:PsiDirectoryNode" />
-              <item name="Picture" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Knowledge-management-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Knowledge-management-system" type="462c0819:PsiDirectoryNode" />
-              <item name="Picture" type="462c0819:PsiDirectoryNode" />
-              <item name="Material" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Knowledge-management-system" type="b2602c69:ProjectViewProjectNode" />
@@ -385,14 +357,16 @@
       <workItem from="1516456677059" duration="1757000" />
       <workItem from="1516544941429" duration="1018000" />
       <workItem from="1516778756797" duration="3427000" />
+      <workItem from="1516866091789" duration="1488000" />
+      <workItem from="1516891454115" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256684000" />
+    <option name="totallyTimeSpent" value="258180000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1416" y="65" width="1280" height="698" extended-state="0" />
+    <frame x="0" y="24" width="1280" height="698" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1765625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -788,14 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3150">
-          <caret line="210" column="1" lean-forward="false" selection-start-line="210" selection-start-column="1" selection-end-line="210" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6810">
@@ -804,38 +770,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Picture/Home-page.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/script/event.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/Knowledge-management-system.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3150">
+          <caret line="210" column="1" lean-forward="false" selection-start-line="210" selection-start-column="1" selection-end-line="210" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/Reconstruction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="369" column="2" lean-forward="false" selection-start-line="369" selection-start-column="2" selection-end-line="369" selection-end-column="2" />
+        <state relative-caret-position="375">
+          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           <folding>
-            <marker date="1516779525000" expanded="true" signature="1038:10981" ph="..." />
-            <marker date="1516779525000" expanded="true" signature="1970:2073" ph="..." />
-            <marker date="1516779525000" expanded="true" signature="3323:3445" ph="..." />
-            <marker date="1516779525000" expanded="true" signature="4963:5745" ph="..." />
+            <marker date="1516869437000" expanded="true" signature="2000:2103" ph="..." />
+            <marker date="1516869437000" expanded="true" signature="3353:3475" ph="..." />
+            <marker date="1516869437000" expanded="true" signature="4993:5775" ph="..." />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Picture/Home-page.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
   </component>

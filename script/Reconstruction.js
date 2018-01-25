@@ -1,8 +1,7 @@
-window.onload = function () {
+
+document.addEventListener('DOMContentLoaded', function () {
     render();
-
-
-};
+});
 
 
 
@@ -247,13 +246,20 @@ let bindAddButton = getSingle(function () {
     let edit = document.getElementById('edit');
     let addButton = document.getElementById('add');
 
-    eventUntil.addHandler(addButton, 'click', function() {
+    addButton.addEventListener('click', function () {
         getSingle(createEditPage)();
         addButton.style.display = 'none';
         cardHtml.style.display = 'none';
         edit.style.display = 'block';
         callValid();
     });
+    // eventUntil.addHandler(addButton, 'click', function() {
+    //     getSingle(createEditPage)();
+    //     addButton.style.display = 'none';
+    //     cardHtml.style.display = 'none';
+    //     edit.style.display = 'block';
+    //     callValid();
+    // });
     return true;
 });
 
