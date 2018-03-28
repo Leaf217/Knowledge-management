@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="961faf04-4c99-40aa-8394-e591260fd5e0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/script/Reconstruction.js" afterPath="$PROJECT_DIR$/script/Reconstruction.js" />
+      <change beforePath="$PROJECT_DIR$/Knowledge-management-system.html" afterPath="$PROJECT_DIR$/Knowledge-management-system.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,33 +19,29 @@
       <file leaf-file-name="Knowledge-management-system.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6810">
+            <state relative-caret-position="15">
               <caret line="454" column="14" lean-forward="false" selection-start-line="454" selection-start-column="14" selection-end-line="454" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Knowledge-management-system.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reconstruction.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Reconstruction.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/Reconstruction.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
               <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-              <folding>
-                <marker date="1516869437000" expanded="true" signature="2000:2103" ph="..." />
-                <marker date="1516869437000" expanded="true" signature="3353:3475" ph="..." />
-                <marker date="1516869437000" expanded="true" signature="4993:5775" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,8 +141,8 @@
         <option value="$PROJECT_DIR$/script/data.js" />
         <option value="$PROJECT_DIR$/css/Knowledge-management-system.less" />
         <option value="$PROJECT_DIR$/script/es6.js" />
-        <option value="$PROJECT_DIR$/Knowledge-management-system.html" />
         <option value="$PROJECT_DIR$/script/Reconstruction.js" />
+        <option value="$PROJECT_DIR$/Knowledge-management-system.html" />
       </list>
     </option>
   </component>
@@ -163,10 +158,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="698" />
+    <option name="height" value="699" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -359,14 +354,15 @@
       <workItem from="1516778756797" duration="3427000" />
       <workItem from="1516866091789" duration="1488000" />
       <workItem from="1516891454115" duration="8000" />
+      <workItem from="1522249126363" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258180000" />
+    <option name="totallyTimeSpent" value="258205000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1280" height="698" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="699" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1765625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -762,14 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6810">
-          <caret line="454" column="14" lean-forward="false" selection-start-line="454" selection-start-column="14" selection-end-line="454" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Picture/Home-page.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -790,23 +778,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/Reconstruction.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <marker date="1516869437000" expanded="true" signature="2000:2103" ph="..." />
-            <marker date="1516869437000" expanded="true" signature="3353:3475" ph="..." />
-            <marker date="1516869437000" expanded="true" signature="4993:5775" ph="..." />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/Knowledge-management-system.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="454" column="14" lean-forward="false" selection-start-line="454" selection-start-column="14" selection-end-line="454" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Knowledge-management-system.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
