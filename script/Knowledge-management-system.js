@@ -433,9 +433,6 @@ function editCard(factorInit) {
 }
 
 
-
-
-
 /**
  * edit页面的 确定 或 取消按钮 触发的事件
  * @param e
